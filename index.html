@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>BiblioVerse — A Biblioteca de Tudo</title>
+<meta content="BiblioVerse — A Biblioteca de Tudo. Portal central para acessar as bibliotecas temáticas e conhecer o projeto e seus curadores." data-i18n="meta.description" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="images/logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<div class="brand-wrap">
+<h1 class="brand">
+<span class="brand-gradient" data-i18n="brand.name">BiblioVerse</span>
+<span class="beta-badge" data-i18n="brand.beta">BETA</span>
+</h1>
+<span class="byline">
+<span data-i18n="brand.byline.prefix">A biblioteca de tudo</span>
+<span> </span><span data-i18n="brand.byline.suffix"></span>
+</span>
+</div><div class="controls" role="group">
+<button aria-label="Toggle language" class="toggle" id="langToggle" title="EN/PT">🌐</button>
+<button aria-label="Alternar tema" class="toggle" id="themeToggle">☀️</button>
+</div>
+</div>
+</header>
+<main class="container">
+<!-- Hero Logo (200x200, responsivo e centralizado) -->
+<img alt="Logo do BiblioVerse" class="hero-logo" data-i18n-attr="alt:hero.logoAlt" fetchpriority="high" loading="eager" src="images/logo.png"/>
+<!-- Grid de bibliotecas -->
+<section aria-label="Acesso rápido às bibliotecas" data-i18n-attr="aria-label:section.libs.aria">
+<div class="lib-grid" role="list">
+<!-- Ordem alfabética por nome completo (PT) -->
+<a class="lib-card" data-key="coding" href="https://code.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">💻</span>
+<span class="lib-name" data-i18n="libs.coding">Biblioteca de Programação (em construção)</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+<a class="lib-card" data-key="design" href="https://design.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">🎨</span>
+<span class="lib-name" data-i18n="libs.design">Biblioteca de Design (em construção)</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+<a class="lib-card" data-key="language" href="https://language.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">🗣️</span>
+<span class="lib-name" data-i18n="libs.language">Biblioteca de Estudo de Idiomas (em construção)</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+<a class="lib-card" data-key="games" href="https://games.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">🎮</span>
+<span class="lib-name" data-i18n="libs.games">Biblioteca de Games (em construção)</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+<a class="lib-card" data-key="ai" href="https://ai.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">🤖</span>
+<span class="lib-name" data-i18n="libs.ai">Biblioteca de IAs</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+<a class="lib-card" data-key="music" href="https://music.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">🎵</span>
+<span class="lib-name" data-i18n="libs.music">Biblioteca de Música (em construção)</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+<a class="lib-card" data-key="social" href="https://social.biblioverse.org" rel="noopener" role="listitem" target="_blank">
+<span class="favicon">🗺</span>
+<span class="lib-name" data-i18n="libs.social">Biblioteca de Redes Sociais</span>
+<span aria-hidden="true" class="lib-visit">↗</span>
+</a>
+</div>
+</section>
+<!-- Sobre o projeto (cor oposta) -->
+<section aria-label="Sobre o projeto" class="" data-i18n-attr="aria-label:section.about.aria">
+<h2 class="section-title gradient-title" data-i18n="section.about.title">Sobre o BiblioVerse</h2><div class="about-card"><p data-i18n="section.about.p1">
+        O BiblioVerse é um hub de bibliotecas temáticas com curadoria humana.
+        A missão é simples: <em>acesso rápido, claro e verificado</em> ao melhor conteúdo,
+        em uma interface mínima e veloz. Código aberto, espírito colaborativo.
+      </p><p data-i18n="section.about.p2">
+        Foco em três pilares: utilidade, transparência e performance. Se um link não ajuda,
+        ele não entra. Se ajuda, entra polido — com contexto, ícone e tradução quando couber.
+      </p></div>
+</section>
+<!-- Curadores com filtro por biblioteca -->
+<section aria-label="Curadores" data-i18n-attr="aria-label:section.curators.aria">
+<div class="cur-head">
+<h2 class="section-title gradient-title" data-i18n="section.curators.title">Curadores</h2>
+<label class="sr-only" data-i18n="section.curators.filterLabel" for="libFilter">Filtrar por biblioteca</label>
+<select class="mono" data-i18n-select="section.curators.filterOptions" id="libFilter">
+<option data-i18n="section.curators.all" value="all">Todas as bibliotecas</option>
+<option data-i18n="libs.design.short" value="design">Design</option>
+<option data-i18n="libs.games.short" value="games">Games</option>
+<option data-i18n="libs.language.short" value="language">Idiomas</option>
+<option data-i18n="libs.ai.short" value="ai">IA</option>
+<option data-i18n="libs.music.short" value="music">Música</option>
+<option data-i18n="libs.coding.short" value="coding">Programação</option>
+<option data-i18n="libs.social.short" value="social">Redes Sociais</option>
+</select>
+</div>
+<div class="curators" id="curators" role="list">
+<article class="cur-card" data-libs="language" role="listitem">
+<img alt="Aline Lima" class="cur-photo" loading="lazy" src="images/curadores/aline.jpg"/>
+<div class="cur-meta">
+<h3 class="cur-name">Aline Lima</h3>
+<p class="cur-desc" data-i18n="curators.aline.desc">Eu estou preparando minha descrição.</p>
+<div class="cur-links">
+<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com/in/juliocesarprava" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn" data-i18n="links.instagram" href="https://instagram.com/jvlioczar" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+<article class="cur-card" data-libs="social" role="listitem">
+<img alt="Andreza Moras" class="cur-photo" loading="lazy" src="images/curadores/andreza.jpg"/>
+<div class="cur-meta">
+<h3 class="cur-name">Andreza Moras</h3>
+<p class="cur-desc" data-i18n="curators.andreza.desc">Eu estou preparando minha descrição.</p>
+<div class="cur-links">
+<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+<article class="cur-card" data-libs="design, games, language, ai, music, coding, social" role="listitem">
+<img alt="Julio Cesar Prava" class="cur-photo" loading="lazy" src="images/curadores/julio.jpg"/>
+<div class="cur-meta">
+<h3 class="cur-name">Julio Cesar Prava</h3>
+<p class="cur-desc" data-i18n="curators.julio.desc">Eu estou preparando minha descrição.</p>
+<div class="cur-links">
+<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com/in/juliocesarprava" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn" data-i18n="links.instagram" href="https://instagram.com/jvlioczar" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+<article class="cur-card" data-libs="coding" role="listitem">
+<img alt="Roney Amorim" class="cur-photo" loading="lazy" src="images/curadores/roney.jpg"/>
+<div class="cur-meta">
+<h3 class="cur-name">Roney Amorim</h3>
+<p class="cur-desc" data-i18n="curators.roney.desc">Eu estou preparando minha descrição.</p>
+<div class="cur-links">
+<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+<article class="cur-card" data-libs="design" role="listitem">
+<img alt="Tainá Rodrigues" class="cur-photo" loading="lazy" src="images/curadores/taina.jpg"/>
+<div class="cur-meta">
+<h3 class="cur-name">Tainá Rodrigues</h3>
+<p class="cur-desc" data-i18n="curators.taina.desc">Eu estou preparando minha descrição.</p>
+<div class="cur-links">
+<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+<article class="cur-card" data-libs="games" role="listitem">
+<img alt="Henrique Mendonça Prado" class="cur-photo" loading="lazy" src="images/curadores/henrique.jpg"/>
+<div class="cur-meta">
+<h3 class="cur-name">Henrique Mendonça Prado</h3>
+<p class="cur-desc" data-i18n="curators.henrique.desc">Eu estou preparando minha descrição.</p>
+<div class="cur-links">
+<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-count" data-i18n="footer.count">
+        Portal central do <strong class="proj-name">BiblioVerse</strong> — última atualização: Setembro/2025
+      </div>
+<p class="footer-lead" data-i18n="footer.lead">&lt;strong class="proj-name"&gt;BiblioVerse&lt;/strong&gt; é um projeto colaborativo para organizar e facilitar o acesso a bibliotecas úteis em diferentes temas.</p>
+<div class="footer-actions">
+<button class="btn share" data-i18n="actions.share" id="shareBtn" type="button">Compartilhar</button>
+</div>
+<p class="footer-thanks" data-i18n="footer.thanks">Obrigado pela visita!</p>
+</div>
+</footer>
+<button aria-label="Voltar ao topo" data-i18n-attr="aria-label:actions.toTop;title:actions.toTop" id="toTopBtn" title="Voltar ao topo">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M7 14l5-5 5 5"></path></svg>
+</button>
+<script src="script.js"></script>
+</body>
+</html>
