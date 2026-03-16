@@ -364,6 +364,84 @@ const CAT_I18N_HI = {
   "🎯 Foco nos Estudos": "अध्ययन पर ध्यान"
 };
 
+// Category i18n mapping – Arabic / العربية (keys are PT)
+const CAT_I18N_AR = {
+  "Altruísmo e petições": "الإيثار والعرائض",
+  "Arte e design": "الفن والتصميم",
+  "Bate-papo": "الدردشة",
+  "Blogs e escrita": "المدونات والكتابة",
+  "Bookmarking": "الإشارات المرجعية",
+  "Buscadores": "محركات البحث",
+  "Ciência e pesquisa": "العلوم والبحث",
+  "Clubes de assinatura e Crowdfunding": "نوادي الاشتراك والتمويل الجماعي",
+  "Comida (avaliação)": "تقييمات الطعام",
+  "Debate": "النقاش",
+  "Emprego": "التوظيف",
+  "Encontros e eventos": "اللقاءات والفعاليات",
+  "Esportes e atividades físicas": "الرياضة والنشاط البدني",
+  "Estadias e viagens (avaliação)": "تقييمات الإقامة والسفر",
+  "Feed": "موجز الأخبار",
+  "Figuras-chave": "الشخصيات الرئيسية",
+  "Filmes e séries (avaliação)": "تقييمات الأفلام والمسلسلات",
+  "Fóruns": "المنتديات",
+  "Fotografia": "التصوير الفوتوغرافي",
+  "Games (avaliação)": "تقييمات الألعاب",
+  "Gaming": "الألعاب",
+  "Gerais": "عام",
+  "IAs": "الذكاء الاصطناعي",
+  "Línguas": "اللغات",
+  "Literatura": "الأدب",
+  "Mais acessados": "المواقع الأكثر زيارة",
+  "Marketplaces": "الأسواق الإلكترونية",
+  "Mensagens": "الرسائل",
+  "Microblogging": "التدوين المصغر",
+  "Música": "الموسيقى",
+  "Música (avaliação)": "تقييمات الموسيقى",
+  "Navegadores web": "متصفحات الويب",
+  "Negócios (avaliação)": "تقييمات الأعمال",
+  "Perguntas": "الأسئلة",
+  "Perguntas pessoais": "الأسئلة الشخصية",
+  "Profissional": "المهني",
+  "Rankings e listas": "التصنيفات والقوائم",
+  "Relacionamento": "العلاقات",
+  "Streaming": "البث المباشر",
+  "Termos essenciais": "المصطلحات الأساسية",
+  "Viagem": "السفر",
+  "Vídeochamada": "مكالمة الفيديو",
+  "Vídeo curto": "الفيديو القصير",
+  "Vídeo longo": "الفيديو الطويل",
+  "Agregador de Links": "مجمع الروابط",
+  "Wikis": "ويكي",
+  "📚 Aplicativos de Idiomas": "تطبيقات تعلم اللغات",
+  "🔁 Aprendizado com Repetição Espaçada": "التعلم بالتكرار المتباعد",
+  "🎓 Plataformas de cursos online": "منصات الدورات الإلكترونية",
+  "📝 Gramática & Vocabulário": "القواعد والمفردات",
+  "🎧 Escuta (Listening)": "الاستماع",
+  "🗣️ Fala (Speaking)": "التحدث",
+  "📖 Leitura (Reading)": "القراءة",
+  "🧩 Memorização": "الحفظ",
+  "✍️ Escrita (Writing)": "الكتابة",
+  "🔊 Pronúncia & Fonética": "النطق وعلم الأصوات",
+  "💡 Conceitos Fundamentais": "المفاهيم الأساسية",
+  "🤝 Conversação & Troca Linguística": "المحادثة والتبادل اللغوي",
+  "🧠 Técnicas e métodos de estudo": "تقنيات وأساليب الدراسة",
+  "🌍 Tradutores": "المترجمون",
+  "📋 Testes & Certificações": "الاختبارات والشهادات",
+  "🏫 Grandes escolas": "المدارس الكبرى",
+  "👨‍🏫 Professores privados": "المدرسون الخصوصيون",
+  "📗 Clubes de leitura online": "نوادي القراءة الإلكترونية",
+  "🖋️ Correção de textos": "تصحيح النصوص",
+  "🔬 Aprendizado Avançado / Linguística": "التعلم المتقدم / اللسانيات",
+  "🌐 Comunidade": "المجتمع",
+  "🤖 Ferramentas com IA para idiomas": "أدوات الذكاء الاصطناعي للغات",
+  "⌚ Gadgets / Wearables": "الأجهزة الذكية / الملبوسات",
+  "✈️ Agências de imersão e intercâmbio": "وكالات الانغماس والتبادل",
+  "Blogs de idiomas": "مدونات اللغات",
+  "📰 Notícias & Revistas de Idiomas": "أخبار ومجلات اللغات",
+  "🌎 Principais Idiomas": "اللغات الرئيسية",
+  "🎯 Foco nos Estudos": "التركيز على الدراسة"
+};
+
 // Category icon mapping (keys are PT)
 const CAT_ICON = {
   "Altruísmo e petições": "🕊️",
@@ -509,12 +587,12 @@ function stripLeadingEmojiLabel(text){
 
 function catLabel(cat){
   const lang = getLang();
-  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : cat)));
+  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : (lang==='ar' ? (CAT_I18N_AR[cat] || cat) : cat))));
   return stripLeadingEmojiLabel(raw);
 }
 function catSlugFor(cat){
   const lang = getLang();
-  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : cat)));
+  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : (lang==='ar' ? (CAT_I18N_AR[cat] || cat) : cat))));
   return slug(translated);
 }
 
@@ -645,6 +723,29 @@ const I18N = {
     favHelp:"इस पृष्ठ को बुकमार्क करने के लिए Ctrl+D (Windows) या Cmd+D (Mac) का उपयोग करें।",
     kbdTitle:
 "कीबोर्ड शॉर्टकट\n/ – सर्च बार सक्रिय करें\nT – थीम रंग बदलें\nL – भाषा बदलें\n\n★ – विशेष"
+  },
+  ar: {
+    brand:"مكتبة تعلم اللغات",
+    by:"بقلم",
+    and:"و",
+    search:"البحث بالاسم",
+    allCats:"جميع الفئات",
+    visit:"زيارة",
+    total:"الإجمالي",
+    items:"عناصر",
+    noResults:"لا توجد نتائج.",
+    footerLeadPre:"",
+    projectName:"مكتبة تعلم اللغات",
+    footerLeadPost:"تم تصورها من قبل Julio Cesar Prava و Aline Lima وبُنيت بمساعدة الذكاء الاصطناعي. يجمع المشروع عناصر مختارة ومراجعة من قبل منسقين بشريين.",
+    bookmarkShare:"احفظ هذا المشروع في المفضلة وشاركه!",
+    thanks:"شكراً على زيارتك!",
+    lastUpdate:"آخر تحديث: مارس/2026",
+    footernav:"تصفح مكتبات مواضيع مفيدة أخرى في <strong class=\"bverse-strong\">BiblioVerse</strong>.",
+    share:"مشاركة",
+    copied:"تم نسخ الرابط!",
+    favHelp:"استخدم Ctrl+D (ويندوز) أو Cmd+D (ماك) لحفظ هذه الصفحة في المفضلة.",
+    kbdTitle:
+"اختصارات لوحة المفاتيح\n/ – تفعيل شريط البحث\nT – تبديل لون السمة\nL – تبديل اللغة\n\n★ – مميز"
   }
 };
 
@@ -694,10 +795,19 @@ const SUPERBAR_I18N = {
     music: "संगीत",
     coding: "कोडिंग",
     social: "सोशल"
+  },
+  ar: {
+    design: "التصميم",
+    games: "الألعاب",
+    language: "اللغات",
+    ai: "الذكاء الاصطناعي",
+    music: "الموسيقى",
+    coding: "البرمجة",
+    social: "التواصل الاجتماعي"
   }
 };
 
-function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':(bl.startsWith('hi')?'hi':'pt'))); }catch(e){ return 'pt'; } }
+function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':(bl.startsWith('hi')?'hi':(bl.startsWith('ar')?'ar':'pt')))); }catch(e){ return 'pt'; } }
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
   try{ localStorage.setItem('libia-lang', lang); }catch(e){}
@@ -724,19 +834,20 @@ function setLang(lang){
 
   const tip = document.getElementById('infoTip'); if(tip) tip.textContent = dict.kbdTitle;
 
-  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : 'pt-br'))));
-  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇧🇷' };
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : (lang==='ar' ? 'ar' : 'pt-br')))));
+  document.documentElement.setAttribute('dir', lang==='ar' ? 'rtl' : 'ltr');
+  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇧🇷' };
   const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = nextLangFlag[lang] || '🇦🇺'; }
 
   // Localize tooltips / aria-labels for toggle buttons and select title
   const themeBtn = document.getElementById('themeToggle');
-  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : (lang==='hi' ? 'थीम बदलें' : 'Alternar tema')))); }
+  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : (lang==='hi' ? 'थीम बदलें' : (lang==='ar' ? 'تبديل السمة' : 'Alternar tema'))))); }
   const langBtn2 = document.getElementById('langToggle');
-  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : (lang==='hi' ? 'भाषा बदलें' : 'Alternar idioma')))); }
+  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : (lang==='hi' ? 'भाषा बदलें' : (lang==='ar' ? 'تبديل اللغة' : 'Alternar idioma'))))); }
   const infoBtn2 = document.getElementById('infoBtn');
-  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : (lang==='hi' ? 'जानकारी' : 'Informações')))); }
+  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : (lang==='hi' ? 'जानकारी' : (lang==='ar' ? 'معلومات' : 'Informações'))))); }
   const catSel2 = document.getElementById('categoryFilter');
-  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : (lang==='hi' ? 'श्रेणी के अनुसार फ़िल्टर करें' : 'Filtrar por categoria')))); }
+  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : (lang==='hi' ? 'श्रेणी के अनुसार फ़िल्टर करें' : (lang==='ar' ? 'تصفية حسب الفئة' : 'Filtrar por categoria'))))); }
 
 // Update superbar labels
   try{
@@ -754,7 +865,7 @@ try{
   if(st){
     st.textContent = lang==='en'
       ? 'BiblioVerse - The Library of Everything'
-      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : (lang==='hi' ? 'BiblioVerse - सब कुछ की लाइब्रेरी' : 'BiblioVerse - A Biblioteca de Tudo')));
+      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : (lang==='hi' ? 'BiblioVerse - सब कुछ की लाइब्रेरी' : (lang==='ar' ? 'BiblioVerse - مكتبة كل شيء' : 'BiblioVerse - A Biblioteca de Tudo'))));
   }
 }catch(e){}
 
@@ -1192,11 +1303,11 @@ function setupInfo(){
   });
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
-    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇧🇷' };
+    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇧🇷' };
     langBtn.textContent = _lbMap[getLang()] || '🇦🇺';
     langBtn.addEventListener('click', ()=>{
       const _cur = getLang();
-      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : (_cur==='zh' ? 'hi' : 'pt')));
+      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : (_cur==='zh' ? 'hi' : (_cur==='hi' ? 'ar' : 'pt'))));
       setLang(next);
       // rebuild categories/select with language-specific slugs
       const cats2=groupBy(data,'category'); populateSelect(cats2);
@@ -1240,7 +1351,7 @@ function setupInfo(){
     const inField = e.target.matches('input,textarea,[contenteditable="true"]');
     if(e.key==='/'&&!inField){ e.preventDefault(); document.querySelector('#search').focus(); }
     if(!inField && e.key && e.key.toLowerCase()==='t'){ e.preventDefault(); const html=document.documentElement; const now=html.getAttribute('data-theme')==='light'?'dark':'light'; setTheme(now); }
-    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':(_lk==='es'?'zh':'pt')); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
+    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':(_lk==='es'?'zh':(_lk==='zh'?'hi':(_lk==='hi'?'ar':'pt')))); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
   });
 })();
 
