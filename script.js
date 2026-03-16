@@ -29,8 +29,8 @@ function updateMenuToggleUi(){
   // Right arrow to expand, left arrow to collapse
   btn.textContent = open ? '◀' : '▶';
   var lang = (typeof getLang==='function') ? getLang() : 'pt';
-  var lblOpen = (lang==='en') ? 'Collapse menu' : 'Recolher menu';
-  var lblClosed = (lang==='en') ? 'Expand menu' : 'Expandir menu';
+  var lblOpen = lang==='en' ? 'Collapse menu' : (lang==='es' ? 'Colapsar menú' : 'Recolher menu');
+  var lblClosed = lang==='en' ? 'Expand menu' : (lang==='es' ? 'Expandir menú' : 'Expandir menu');
   btn.setAttribute('aria-label', open ? lblOpen : lblClosed);
   btn.setAttribute('title', open ? lblOpen : lblClosed);
 }
@@ -128,6 +128,84 @@ const CAT_I18N = {
   "📰 Notícias & Revistas de Idiomas": "Language News & Magazines",
   "🌎 Principais Idiomas": "Major Languages",
   "🎯 Foco nos Estudos": "Study Focus"
+};
+
+// Category i18n mapping – Spanish (keys are PT)
+const CAT_I18N_ES = {
+  "Altruísmo e petições": "Altruismo y Peticiones",
+  "Arte e design": "Arte y Diseño",
+  "Bate-papo": "Chat",
+  "Blogs e escrita": "Blogs y Escritura",
+  "Bookmarking": "Marcadores",
+  "Buscadores": "Motores de Búsqueda",
+  "Ciência e pesquisa": "Ciencia e Investigación",
+  "Clubes de assinatura e Crowdfunding": "Clubs de Suscripción y Crowdfunding",
+  "Comida (avaliação)": "Reseñas de Comida",
+  "Debate": "Debate",
+  "Emprego": "Empleo",
+  "Encontros e eventos": "Encuentros y Eventos",
+  "Esportes e atividades físicas": "Deportes y Actividad Física",
+  "Estadias e viagens (avaliação)": "Reseñas de Alojamiento y Viajes",
+  "Feed": "Feed de Noticias",
+  "Figuras-chave": "Figuras Clave",
+  "Filmes e séries (avaliação)": "Reseñas de Películas y Series",
+  "Fóruns": "Foros",
+  "Fotografia": "Fotografía",
+  "Games (avaliação)": "Reseñas de Juegos",
+  "Gaming": "Videojuegos",
+  "Gerais": "General",
+  "IAs": "IA",
+  "Línguas": "Idiomas",
+  "Literatura": "Literatura",
+  "Mais acessados": "Sitios Más Visitados",
+  "Marketplaces": "Marketplaces",
+  "Mensagens": "Mensajería",
+  "Microblogging": "Microblogging",
+  "Música": "Música",
+  "Música (avaliação)": "Reseñas de Música",
+  "Navegadores web": "Navegadores Web",
+  "Negócios (avaliação)": "Reseñas de Negocios",
+  "Perguntas": "Preguntas",
+  "Perguntas pessoais": "Preguntas Personales",
+  "Profissional": "Profesional",
+  "Rankings e listas": "Rankings y Listas",
+  "Relacionamento": "Relaciones",
+  "Streaming": "Streaming",
+  "Termos essenciais": "Términos Esenciales",
+  "Viagem": "Viajes",
+  "Vídeochamada": "Videollamada",
+  "Vídeo curto": "Video Corto",
+  "Vídeo longo": "Video Largo",
+  "Agregador de Links": "Agregador de Links",
+  "Wikis": "Wikis",
+  "📚 Aplicativos de Idiomas": "Aplicaciones de Idiomas",
+  "🔁 Aprendizado com Repetição Espaçada": "Aprendizaje con Repetición Espaciada",
+  "🎓 Plataformas de cursos online": "Plataformas de Cursos en Línea",
+  "📝 Gramática & Vocabulário": "Gramática y Vocabulario",
+  "🎧 Escuta (Listening)": "Escucha (Listening)",
+  "🗣️ Fala (Speaking)": "Habla (Speaking)",
+  "📖 Leitura (Reading)": "Lectura (Reading)",
+  "🧩 Memorização": "Memorización",
+  "✍️ Escrita (Writing)": "Escritura (Writing)",
+  "🔊 Pronúncia & Fonética": "Pronunciación y Fonética",
+  "💡 Conceitos Fundamentais": "Conceptos Fundamentales",
+  "🤝 Conversação & Troca Linguística": "Conversación e Intercambio Lingüístico",
+  "🧠 Técnicas e métodos de estudo": "Técnicas y Métodos de Estudio",
+  "🌍 Tradutores": "Traductores",
+  "📋 Testes & Certificações": "Pruebas y Certificaciones",
+  "🏫 Grandes escolas": "Grandes Escuelas",
+  "👨‍🏫 Professores privados": "Profesores Privados",
+  "📗 Clubes de leitura online": "Clubes de Lectura en Línea",
+  "🖋️ Correção de textos": "Corrección de Textos",
+  "🔬 Aprendizado Avançado / Linguística": "Aprendizaje Avanzado / Lingüística",
+  "🌐 Comunidade": "Comunidad",
+  "🤖 Ferramentas com IA para idiomas": "Herramientas de IA para Idiomas",
+  "⌚ Gadgets / Wearables": "Gadgets / Wearables",
+  "✈️ Agências de imersão e intercâmbio": "Agencias de Inmersión e Intercambio",
+  "Blogs de idiomas": "Blogs de Idiomas",
+  "📰 Notícias & Revistas de Idiomas": "Noticias y Revistas de Idiomas",
+  "🌎 Principais Idiomas": "Principales Idiomas",
+  "🎯 Foco nos Estudos": "Enfoque en los Estudios"
 };
 
 // Category icon mapping (keys are PT)
@@ -274,10 +352,15 @@ function stripLeadingEmojiLabel(text){
 }
 
 function catLabel(cat){
-  const raw = (getLang()==='en' ? (CAT_I18N[cat] || cat) : cat);
+  const lang = getLang();
+  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : cat);
   return stripLeadingEmojiLabel(raw);
 }
-function catSlugFor(cat){ return slug(getLang()==='en' ? (CAT_I18N[cat] || cat) : cat); }
+function catSlugFor(cat){
+  const lang = getLang();
+  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : cat);
+  return slug(translated);
+}
 
 
 
@@ -337,6 +420,29 @@ const I18N = {
     favHelp:"Use Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page.",
     kbdTitle:
 "Keyboard shortcuts\n/ – Focus the search bar\nT – Toggle theme color\nL – Toggle language\n\n★ – Featured"
+  },
+  es: {
+    brand:"La Biblioteca de Aprendizaje de Idiomas",
+    by:"por",
+    and:"y",
+    search:"Buscar por nombre",
+    allCats:"Todas las categorías",
+    visit:"Visitar",
+    total:"Total",
+    items:"elementos",
+    noResults:"Sin resultados.",
+    footerLeadPre:"",
+    projectName:"La Biblioteca de Aprendizaje de Idiomas",
+    footerLeadPost:"fue concebida por Julio Cesar Prava y Aline Lima y construida con la ayuda de IA. El proyecto reúne elementos seleccionados y revisados por curadores humanos.",
+    bookmarkShare:"¡Guarda este proyecto en tus favoritos y compártelo!",
+    thanks:"¡Gracias por tu visita!",
+    lastUpdate:"Última actualización: Septiembre/2025",
+    footernav:"Accede a las bibliotecas de otros temas útiles en <strong class=\"bverse-strong\">BiblioVerse</strong>.",
+    share:"Compartir",
+    copied:"¡Enlace copiado!",
+    favHelp:"Usa Ctrl+D (Windows) o Cmd+D (Mac) para marcar esta página.",
+    kbdTitle:
+"Atajos de teclado\n/ – Activar la barra de búsqueda\nT – Cambiar color del tema\nL – Cambiar idioma\n\n★ – Destacado"
   }
 };
 
@@ -359,10 +465,19 @@ const SUPERBAR_I18N = {
     music: "Music",
     coding: "Coding",
     social: "Social"
+  },
+  es: {
+    design: "Diseño",
+    games: "Juegos",
+    language: "Idiomas",
+    ai: "IA",
+    music: "Música",
+    coding: "Programación",
+    social: "Redes Sociales"
   }
 };
 
-function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':'pt'; }catch(e){ return 'pt'; } }
+function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':'pt'); }catch(e){ return 'pt'; } }
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
   try{ localStorage.setItem('libia-lang', lang); }catch(e){}
@@ -389,18 +504,19 @@ function setLang(lang){
 
   const tip = document.getElementById('infoTip'); if(tip) tip.textContent = dict.kbdTitle;
 
-  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : 'pt-br');
-  const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = (lang==='en' ? '🇧🇷' : '🇦🇺'); }
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : 'pt-br'));
+  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇧🇷' };
+  const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = nextLangFlag[lang] || '🇦🇺'; }
 
   // Localize tooltips / aria-labels for toggle buttons and select title
   const themeBtn = document.getElementById('themeToggle');
-  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : 'Alternar tema'); }
+  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : 'Alternar tema')); }
   const langBtn2 = document.getElementById('langToggle');
-  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : 'Alternar idioma'); }
+  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : 'Alternar idioma')); }
   const infoBtn2 = document.getElementById('infoBtn');
-  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : 'Informações'); }
+  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : 'Informações')); }
   const catSel2 = document.getElementById('categoryFilter');
-  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : 'Filtrar por categoria'); }
+  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : 'Filtrar por categoria')); }
 
 // Update superbar labels
   try{
@@ -416,9 +532,9 @@ function setLang(lang){
 try{
   var st = document.querySelector('.superbar .superbar-toggle .i18n-superbar-title');
   if(st){
-    st.textContent = (lang==='en')
+    st.textContent = lang==='en'
       ? 'BiblioVerse - The Library of Everything'
-      : 'BiblioVerse - A Biblioteca de Tudo';
+      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : 'BiblioVerse - A Biblioteca de Tudo');
   }
 }catch(e){}
 
@@ -733,7 +849,7 @@ function ensureTopButton(){
   if(!b){
     b=document.createElement('button');
     b.id='toTopBtn';
-    b.setAttribute('title', getLang()==='en' ? 'Back to top' : 'Voltar ao topo');
+    b.setAttribute('title', getLang()==='en' ? 'Back to top' : (getLang()==='es' ? 'Volver arriba' : 'Voltar ao topo'));
     b.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-7 7h4v9h6v-9h4z"/></svg>`;
     document.body.appendChild(b);
     b.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
@@ -742,8 +858,8 @@ function ensureTopButton(){
 }
 function updateDocTitleAndMeta(){
   const lang=getLang();
-  const name = lang==='en' ? 'BiblioVerse — The Language Learning Library' : 'BiblioVerse — A Biblioteca de Aprendizado de Idiomas';
-  const desc = lang==='en' ? 'Searchable catalog of the best language learning resources by category' : 'Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria';
+  const name = lang==='en' ? 'BiblioVerse — The Language Learning Library' : (lang==='es' ? 'BiblioVerse — La Biblioteca de Aprendizaje de Idiomas' : 'BiblioVerse — A Biblioteca de Aprendizado de Idiomas');
+  const desc = lang==='en' ? 'Searchable catalog of the best language learning resources by category' : (lang==='es' ? 'Catálogo buscable de los mejores recursos para aprender idiomas por categoría' : 'Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria');
   document.title = name + ' — ' + desc;
   const meta=document.querySelector('meta[name="description"]'); if(meta){ meta.setAttribute('content', desc); }
 }
@@ -757,7 +873,7 @@ function setupShare(){
     if(navigator.share){
       try{ await navigator.share({ title: document.title, text, url }); return; }catch(e){ /* ignore */ }
     }
-    try{ await navigator.clipboard.writeText(url); alert((getLang()==='en'?I18N.en.copied:I18N.pt.copied)); }catch(e){}
+    try{ await navigator.clipboard.writeText(url); const _l=getLang(); alert(_l==='en'?I18N.en.copied:(_l==='es'?I18N.es.copied:I18N.pt.copied)); }catch(e){}
   });
 }
 
@@ -767,7 +883,7 @@ function setupFavorite(){
     if(window.external && 'AddFavorite' in window.external){
       try{ window.external.AddFavorite(location.href, document.title); return; }catch(e){}
     }
-    alert((getLang()==='en'?I18N.en.favHelp:I18N.pt.favHelp));
+    const _lf=getLang(); alert(_lf==='en'?I18N.en.favHelp:(_lf==='es'?I18N.es.favHelp:I18N.pt.favHelp));
   });
 }
 
@@ -776,7 +892,7 @@ function setupInfo(){
   const tip = document.getElementById('infoTip');
   if(!infoBtn || !tip) return;
   // initial content
-  tip.textContent = (getLang()==='en' ? I18N.en.kbdTitle : I18N.pt.kbdTitle);
+  const _li=getLang(); tip.textContent = _li==='en' ? I18N.en.kbdTitle : (_li==='es' ? I18N.es.kbdTitle : I18N.pt.kbdTitle);
   // show on hover/focus
   const show = ()=> tip.setAttribute('aria-hidden','false');
   const hide = ()=> tip.setAttribute('aria-hidden','true');
@@ -856,9 +972,11 @@ function setupInfo(){
   });
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
-    langBtn.textContent = (getLang()==='en' ? '🇧🇷' : '🇦🇺');
+    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇧🇷' };
+    langBtn.textContent = _lbMap[getLang()] || '🇦🇺';
     langBtn.addEventListener('click', ()=>{
-      const next = (getLang()==='en') ? 'pt' : 'en';
+      const _cur = getLang();
+      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : 'pt');
       setLang(next);
       // rebuild categories/select with language-specific slugs
       const cats2=groupBy(data,'category'); populateSelect(cats2);
@@ -902,7 +1020,7 @@ function setupInfo(){
     const inField = e.target.matches('input,textarea,[contenteditable="true"]');
     if(e.key==='/'&&!inField){ e.preventDefault(); document.querySelector('#search').focus(); }
     if(!inField && e.key && e.key.toLowerCase()==='t'){ e.preventDefault(); const html=document.documentElement; const now=html.getAttribute('data-theme')==='light'?'dark':'light'; setTheme(now); }
-    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const next=(getLang()==='en')?'pt':'en'; setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
+    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':'pt'); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
   });
 })();
 
