@@ -1,191 +1,2064 @@
 <!DOCTYPE html>
 
-<html data-theme="dark" lang="pt-br">
+<html lang="pt-BR">
 <head>
+<!-- Ícones principais --><!-- Apple (iOS) -->
+<link href="./images/icon_192.png" rel="apple-touch-icon"/>
+<!-- Preload opcional para o SVG se quiser -->
+<link as="image" href="./images/icon.svg" imagesizes="23px" rel="preload"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>BiblioVerse — A Biblioteca de Tudo</title>
-<meta content="BiblioVerse — A Biblioteca de Tudo. Portal central para acessar as bibliotecas temáticas e conhecer o projeto e seus curadores." data-i18n="meta.description" name="description"/>
+<meta content="#0e1117" name="theme-color"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<title>BiblioVerse — A Biblioteca de Aprendizado de Idiomas — Catálogo pesquisável dos melhores recursos para aprender idiomas</title>
+<!-- App icons -->
+<link href="images/icon.svg" rel="icon" type="image/svg+xml"/>
+<link href="images/icon_192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="images/icon_512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="images/icon_192.png" rel="apple-touch-icon"/>
+<meta content="#0e1117" name="theme-color"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria. Uma biblioteca essencial para estudantes de línguas, professores e curiosos." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="images/logo.svg" rel="icon" type="image/svg+xml"/>
-<link href="styles.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link as="style" href="styles.css" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="styles.css" rel="stylesheet"/></noscript>
+<link href="./manifest.webmanifest" rel="manifest"/>
 </head>
 <body>
-<header class="site-header">
-<div class="container header-inner">
+<!-- Super-bar: 8 equal tabs across the full width -->
+<nav aria-label="Bibliotecas" class="superbar">
+<div class="superbar-toggle"><span class="superbar-title i18n-superbar-title">BiblioVerse - A Biblioteca de Tudo</span> <span aria-hidden="true" class="icon-burger"><i></i><i></i><i></i></span><span aria-hidden="true" class="icon-close">✕</span></div>
+<ul class="superbar-list">
+<li class="superbar-item"><a data-key="design" href="https://design.biblioverse.org">Design</a></li>
+<li class="superbar-item"><a data-key="games" href="https://games.biblioverse.org">Games</a></li>
+<li class="superbar-item active"><a data-key="language" href="https://language.biblioverse.org">Idiomas</a></li>
+<li class="superbar-item"><a data-key="ai" href="https://ai.biblioverse.org">IA</a></li>
+<li class="superbar-item"><a data-key="music" href="https://music.biblioverse.org">Música</a></li>
+<li class="superbar-item"><a data-key="coding" href="https://code.biblioverse.org">Programação</a></li>
+<li class="superbar-item"><a data-key="social" href="https://social.biblioverse.org">Redes Sociais</a></li>
+</ul>
+</nav>
+<aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button aria-label="Expandir menu" class="side-toggle" id="menuToggle" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
+<div class="header-inner container">
 <div class="brand-wrap">
 <h1 class="brand">
-<span class="brand-gradient" data-i18n="brand.name">BiblioVerse</span>
-<span class="beta-badge" data-i18n="brand.beta">BETA</span>
+<!-- Link apenas no ícone -->
+<a href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">
+<img alt="Logo" class="brand-logo" fetchpriority="high" src="images/icon.svg" style="height:23px;width:23px;vertical-align:middle;margin-right:4px;"/>
+</a>
+<!-- Nome do site continua separado -->
+<a class="brand-link" href="#">
+<span class="brand-gradient i18n-brand">A Biblioteca de Aprendizado de Idiomas</span>
+</a>
+<span class="beta-badge">
+      BETA
+    </span>
 </h1>
 <span class="byline">
-<span data-i18n="brand.byline.prefix">A biblioteca de tudo</span>
-<span> </span><span data-i18n="brand.byline.suffix"></span>
+<span class="i18n-by">Idealizada por</span>
+<a class="bylink" href="https://instagram.com/jvlioczar" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
+<span class="i18n-and"></span>
+<a class="bylink" href="" rel="noopener noreferrer" target="_blank"></a>
 </span>
-</div><div class="controls" role="group">
-<button aria-label="Toggle language" class="toggle" id="langToggle" title="EN/PT">🌐</button>
-<button aria-label="Alternar tema" class="toggle" id="themeToggle">☀️</button>
+</div>
+<div class="controls">
+<input autofocus="" class="mono" id="search" placeholder="Buscar por nome" type="search"/>
+<select class="mono" id="categoryFilter" title="Filtrar por categoria"></select>
+<div class="control-group">
+<button aria-label="Alternar tema" class="toggle" id="themeToggle" type="button">☀️</button>
+<button aria-label="Alternar idioma" class="toggle" id="langToggle" type="button">🇦🇺</button>
+<button aria-label="Informações" class="toggle info" id="infoBtn" type="button">ℹ️</button>
+<div aria-hidden="true" class="infotooltip" id="infoTip" role="tooltip"></div>
 </div>
 </div>
-</header>
-<main class="container">
-<!-- Hero Logo (200x200, responsivo e centralizado) -->
-<img alt="Logo do BiblioVerse" class="hero-logo" data-i18n-attr="alt:hero.logoAlt" fetchpriority="high" loading="eager" src="images/logo.png"/>
-<!-- Grid de bibliotecas -->
-<section aria-label="Acesso rápido às bibliotecas" data-i18n-attr="aria-label:section.libs.aria">
-<div class="lib-grid" role="list">
-<!-- Ordem alfabética por nome completo (PT) -->
-<a class="lib-card" data-key="coding" href="https://code.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">💻</span>
-<span class="lib-name" data-i18n="libs.coding">Biblioteca de Programação (em construção)</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
-<a class="lib-card" data-key="design" href="https://design.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">🎨</span>
-<span class="lib-name" data-i18n="libs.design">Biblioteca de Design (em construção)</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
-<a class="lib-card" data-key="language" href="https://language.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">🗣️</span>
-<span class="lib-name" data-i18n="libs.language">Biblioteca de Estudo de Idiomas (em construção)</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
-<a class="lib-card" data-key="games" href="https://games.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">🎮</span>
-<span class="lib-name" data-i18n="libs.games">Biblioteca de Games (em construção)</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
-<a class="lib-card" data-key="ai" href="https://ai.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">🤖</span>
-<span class="lib-name" data-i18n="libs.ai">Biblioteca de IAs</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
-<a class="lib-card" data-key="music" href="https://music.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">🎵</span>
-<span class="lib-name" data-i18n="libs.music">Biblioteca de Música (em construção)</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
-<a class="lib-card" data-key="social" href="https://social.biblioverse.org" rel="noopener" role="listitem" target="_blank">
-<span class="favicon">🗺</span>
-<span class="lib-name" data-i18n="libs.social">Biblioteca de Redes Sociais</span>
-<span aria-hidden="true" class="lib-visit">↗</span>
-</a>
 </div>
-</section>
-<!-- Sobre o projeto (cor oposta) -->
-<section aria-label="Sobre o projeto" class="" data-i18n-attr="aria-label:section.about.aria">
-<h2 class="section-title gradient-title" data-i18n="section.about.title">Sobre o BiblioVerse</h2><div class="about-card"><p data-i18n="section.about.p1">
-        O BiblioVerse é um hub de bibliotecas temáticas com curadoria humana.
-        A missão é simples: <em>acesso rápido, claro e verificado</em> ao melhor conteúdo,
-        em uma interface mínima e veloz. Código aberto, espírito colaborativo.
-      </p><p data-i18n="section.about.p2">
-        Foco em três pilares: utilidade, transparência e performance. Se um link não ajuda,
-        ele não entra. Se ajuda, entra polido — com contexto, ícone e tradução quando couber.
-      </p></div>
-</section>
-<!-- Curadores com filtro por biblioteca -->
-<section aria-label="Curadores" data-i18n-attr="aria-label:section.curators.aria">
-<div class="cur-head">
-<h2 class="section-title gradient-title" data-i18n="section.curators.title">Curadores</h2>
-<label class="sr-only" data-i18n="section.curators.filterLabel" for="libFilter">Filtrar por biblioteca</label>
-<select class="mono" data-i18n-select="section.curators.filterOptions" id="libFilter">
-<option data-i18n="section.curators.all" value="all">Todas as bibliotecas</option>
-<option data-i18n="libs.design.short" value="design">Design</option>
-<option data-i18n="libs.games.short" value="games">Games</option>
-<option data-i18n="libs.language.short" value="language">Idiomas</option>
-<option data-i18n="libs.ai.short" value="ai">IA</option>
-<option data-i18n="libs.music.short" value="music">Música</option>
-<option data-i18n="libs.coding.short" value="coding">Programação</option>
-<option data-i18n="libs.social.short" value="social">Redes Sociais</option>
-</select>
-</div>
-<div class="curators" id="curators" role="list">
-<article class="cur-card" data-libs="language" role="listitem">
-<img alt="Aline Lima" class="cur-photo" loading="lazy" src="images/curadores/aline.jpg"/>
-<div class="cur-meta">
-<h3 class="cur-name">Aline Lima</h3>
-<p class="cur-desc" data-i18n="curators.aline.desc">Eu estou preparando minha descrição.</p>
-<div class="cur-links">
-<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com/in/juliocesarprava" rel="noopener" target="_blank">LinkedIn</a>
-<a class="btn" data-i18n="links.instagram" href="https://instagram.com/jvlioczar" rel="noopener" target="_blank">Instagram</a>
-</div>
-</div>
-</article>
-<article class="cur-card" data-libs="social" role="listitem">
-<img alt="Andreza Moras" class="cur-photo" loading="lazy" src="images/curadores/andreza.jpg"/>
-<div class="cur-meta">
-<h3 class="cur-name">Andreza Moras</h3>
-<p class="cur-desc" data-i18n="curators.andreza.desc">Eu estou preparando minha descrição.</p>
-<div class="cur-links">
-<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
-<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
-</div>
-</div>
-</article>
-<article class="cur-card" data-libs="design, games, language, ai, music, coding, social" role="listitem">
-<img alt="Julio Cesar Prava" class="cur-photo" loading="lazy" src="images/curadores/julio.jpg"/>
-<div class="cur-meta">
-<h3 class="cur-name">Julio Cesar Prava</h3>
-<p class="cur-desc" data-i18n="curators.julio.desc">Eu estou preparando minha descrição.</p>
-<div class="cur-links">
-<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com/in/juliocesarprava" rel="noopener" target="_blank">LinkedIn</a>
-<a class="btn" data-i18n="links.instagram" href="https://instagram.com/jvlioczar" rel="noopener" target="_blank">Instagram</a>
-</div>
-</div>
-</article>
-<article class="cur-card" data-libs="coding" role="listitem">
-<img alt="Roney Amorim" class="cur-photo" loading="lazy" src="images/curadores/roney.jpg"/>
-<div class="cur-meta">
-<h3 class="cur-name">Roney Amorim</h3>
-<p class="cur-desc" data-i18n="curators.roney.desc">Eu estou preparando minha descrição.</p>
-<div class="cur-links">
-<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
-<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
-</div>
-</div>
-</article>
-<article class="cur-card" data-libs="design" role="listitem">
-<img alt="Tainá Rodrigues" class="cur-photo" loading="lazy" src="images/curadores/taina.jpg"/>
-<div class="cur-meta">
-<h3 class="cur-name">Tainá Rodrigues</h3>
-<p class="cur-desc" data-i18n="curators.taina.desc">Eu estou preparando minha descrição.</p>
-<div class="cur-links">
-<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
-<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
-</div>
-</div>
-</article>
-<article class="cur-card" data-libs="games" role="listitem">
-<img alt="Henrique Mendonça Prado" class="cur-photo" loading="lazy" src="images/curadores/henrique.jpg"/>
-<div class="cur-meta">
-<h3 class="cur-name">Henrique Mendonça Prado</h3>
-<p class="cur-desc" data-i18n="curators.henrique.desc">Eu estou preparando minha descrição.</p>
-<div class="cur-links">
-<a class="btn" data-i18n="links.linkedin" href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
-<a class="btn" data-i18n="links.instagram" href="https://instagram.com" rel="noopener" target="_blank">Instagram</a>
-</div>
-</div>
-</article>
-</div>
-</section>
-</main>
+</header><div class="container">
+<div aria-live="polite" id="root"><div class="skeleton" id="skeleton"><div class="skeleton-title"></div><div class="skeleton-grid"><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div></div></div></div>
 <footer class="footer">
 <div class="footer-inner">
-<div class="footer-count" data-i18n="footer.count">
-        Portal central do <strong class="proj-name">BiblioVerse</strong> — última atualização: Setembro/2025
-      </div>
-<p class="footer-lead" data-i18n="footer.lead">&lt;strong class="proj-name"&gt;BiblioVerse&lt;/strong&gt; é um projeto colaborativo para organizar e facilitar o acesso a bibliotecas úteis em diferentes temas.</p>
-<div class="footer-actions">
-<button class="btn share" data-i18n="actions.share" id="shareBtn" type="button">Compartilhar</button>
+<!-- Total vem primeiro -->
+<div class="footer-count">
+<span class="i18n-total">Total</span>: 
+      <span id="count">0</span>
+<span class="i18n-items">itens</span>
+<span class="sep">|</span>
+<span class="i18n-lastupdate">Última atualização: Março/2026</span>
 </div>
-<p class="footer-thanks" data-i18n="footer.thanks">Obrigado pela visita!</p>
+<p class="footer-lead">
+<span class="i18n-footer-lead-pre">O projeto</span>
+<strong class="proj-name i18n-project-name">A Biblioteca de Aprendizado de Idiomas</strong>
+<span class="i18n-footer-lead-post">foi idealizada por Julio Cesar Prava e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.</span>
+</p>
+<p class="footer-note i18n-bookmarkShare">Salve esse projeto nos seus favoritos e compartilhe!</p>
+<p class="footer-nav"><span class="i18n-footernav">Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.</span></p>
+<div class="footer-actions">
+<a class="btn linkedin mono" href="https://linkedin.com/in/juliocesarprava/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<button aria-label="Favoritar" class="btn star mono" id="favBtn" type="button">⭐</button>
+<button class="btn share mono" id="shareBtn" type="button"><span class="i18n-share">Compartilhar</span></button>
+<a class="btn bverse mono" href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">BiblioVerse</a>
+</div>
+<p class="footer-thanks i18n-thanks">Obrigado pela visita!</p>
 </div>
 </footer>
-<button aria-label="Voltar ao topo" data-i18n-attr="aria-label:actions.toTop;title:actions.toTop" id="toTopBtn" title="Voltar ao topo">
-<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18"><path d="M7 14l5-5 5 5"></path></svg>
-</button>
-<script src="script.js"></script>
+</div><script id="preloaded-data" type="application/json">[
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Babbel",
+    "url": "https://www.babbel.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Anki",
+    "url": "https://apps.ankiweb.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "BBC Languages",
+    "url": "http://www.bbc.co.uk/languages",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Collins Multilingual",
+    "url": "https://www.collinsdictionary.com/us/translator",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "BBC Learning English Podcasts",
+    "url": "https://www.bbc.co.uk/learningenglish",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "Cambly",
+    "url": "https://www.cambly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "LingQ",
+    "url": "https://www.lingq.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Anki",
+    "url": "https://apps.ankiweb.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "750 Words",
+    "url": "https://750words.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "Cambridge Pronunciation",
+    "url": "https://dictionary.cambridge.org/pronunciation/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Aquisição de linguagem",
+    "url": "https://pt.wikipedia.org/wiki/Aquisi%C3%A7%C3%A3o_da_linguagem",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "ConversationExchange",
+    "url": "https://www.conversationexchange.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Active Recall",
+    "url": "https://en.wikipedia.org/wiki/Active_recall",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "DeepL",
+    "url": "https://www.deepl.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "Cambridge English Exams",
+    "url": "https://www.cambridgeenglish.org/exams-and-tests/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Alliance Française",
+    "url": "https://www.alliancefr.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "AmazingTalker",
+    "url": "https://en.amazingtalker.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "BookCrossing",
+    "url": "https://www.bookcrossing.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "Draft",
+    "url": "https://draftin.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Applied Linguistics",
+    "url": "https://en.wikipedia.org/wiki/Applied_linguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Discord Language Learning",
+    "url": "https://discord.me/language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "ChatGPT",
+    "url": "https://chat.openai.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Anfier Voice Translator",
+    "url": "https://anfier.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "AIESEC Exchange",
+    "url": "https://aiesec.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "5 Minute Language Blog",
+    "url": "https://5minutelanguage.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "Babel Magazine",
+    "url": "https://babelzine.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "English",
+    "url": "https://en.wikipedia.org/wiki/English_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Cold Turkey Blocker",
+    "url": "https://getcoldturkey.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Beelinguapp",
+    "url": "https://beelinguapp.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Brainscape",
+    "url": "https://www.brainscape.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "Coursera",
+    "url": "https://www.coursera.org/browse/language-learning",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Glosbe",
+    "url": "https://glosbe.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "Coffee Break Languages",
+    "url": "https://radiolingua.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "ConversationExchange",
+    "url": "https://www.conversationexchange.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "Literacy Works",
+    "url": "https://literacyworks.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Memrise",
+    "url": "https://www.memrise.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "Draft",
+    "url": "https://draftin.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "Elsa Speak",
+    "url": "https://elsaspeak.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Aquisição de segunda língua",
+    "url": "https://en.wikipedia.org/wiki/Second_language_acquisition",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "Discord Language Exchange",
+    "url": "https://discord.me/language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Comprehensible Input",
+    "url": "https://en.wikipedia.org/wiki/Comprehensible_input",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "Google Translate",
+    "url": "https://translate.google.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "DALF/DELF",
+    "url": "https://www.france-education-international.fr/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Berlitz",
+    "url": "https://www.berlitz.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "AmazingTalker Kids",
+    "url": "https://en.amazingtalker.com/kids",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Discord Book Club Servers",
+    "url": "https://disboard.org/servers/tag/book-club",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "Grammarly",
+    "url": "https://www.grammarly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Computational Linguistics",
+    "url": "https://en.wikipedia.org/wiki/Computational_linguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Duolingo Forum",
+    "url": "https://forum.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "Elsa Speak",
+    "url": "https://elsaspeak.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Google Pixel Buds Translate",
+    "url": "https://support.google.com/pixelbuds/answer/9137852",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "CI Experience",
+    "url": "https://www.ci.com.br/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "All Things Linguistic",
+    "url": "https://allthingslinguistic.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "BBC Languages",
+    "url": "http://www.bbc.co.uk/languages",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Mandarin Chinese",
+    "url": "https://en.wikipedia.org/wiki/Mandarin_Chinese",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Focus To-Do",
+    "url": "https://www.focustodo.cn/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Busuu",
+    "url": "https://www.busuu.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Clozemaster (modo SRS)",
+    "url": "https://www.clozemaster.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "edX Language Learning",
+    "url": "https://www.edx.org/learn/languages",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Grammarly",
+    "url": "https://www.grammarly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "Duolingo Podcasts",
+    "url": "https://podcast.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "HelloTalk",
+    "url": "https://www.hellotalk.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "ManyBooks",
+    "url": "https://manybooks.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Quizlet",
+    "url": "https://quizlet.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "Grammarly",
+    "url": "https://www.grammarly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "Forvo",
+    "url": "https://forvo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Fonética",
+    "url": "https://pt.wikipedia.org/wiki/Fon%C3%A9tica",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "HelloTalk",
+    "url": "https://www.hellotalk.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Fluent Forever Method",
+    "url": "https://fluent-forever.com/method/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "iTranslate",
+    "url": "https://www.itranslate.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "DELE",
+    "url": "https://examenes.cervantes.es/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "EF Education First",
+    "url": "https://www.ef.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "Cambly",
+    "url": "https://www.cambly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Goodreads Groups",
+    "url": "https://www.goodreads.com/group",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "Hemingway Editor",
+    "url": "https://hemingwayapp.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Historical Linguistics",
+    "url": "https://en.wikipedia.org/wiki/Historical_linguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Fluent in 3 Months Community",
+    "url": "https://www.fluentin3months.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "LangAI",
+    "url": "https://www.lang.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "ili Instant Translator",
+    "url": "https://www.iamili.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "CIEE Intercâmbio",
+    "url": "https://ciee.org.br/intercambio",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Anywhere Immersion Blog",
+    "url": "https://www.anywhereimmersion.com/blog",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "Esperanto Magazine",
+    "url": "https://lernu.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Hindi",
+    "url": "https://en.wikipedia.org/wiki/Hindi",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Forest App",
+    "url": "https://www.forestapp.cc/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Drops",
+    "url": "https://languagedrops.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Memrise",
+    "url": "https://www.memrise.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "EF English Live",
+    "url": "https://englishlive.ef.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Green’s Dictionary of Slang",
+    "url": "https://greensdictofslang.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "ESLPod",
+    "url": "https://www.eslpod.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "italki",
+    "url": "https://www.italki.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "News in Levels",
+    "url": "https://www.newsinlevels.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Brainscape",
+    "url": "https://www.brainscape.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "Hemingway Editor",
+    "url": "https://hemingwayapp.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "HowJSay",
+    "url": "https://howjsay.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Functional linguistics",
+    "url": "https://www.wikiwand.com/en/articles/Functional_linguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "Italki Community",
+    "url": "https://www.italki.com/community",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Graded Readers",
+    "url": "https://en.wikipedia.org/wiki/Graded_reader",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "Linguee",
+    "url": "https://www.linguee.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "Duolingo Certificate",
+    "url": "https://englishtest.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Goethe-Institut",
+    "url": "https://www.goethe.de/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "Fluentify",
+    "url": "https://www.fluentify.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "LibraryThing Groups",
+    "url": "https://www.librarything.com/groups",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "HiNative",
+    "url": "https://hinative.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Neurolinguistics",
+    "url": "https://en.wikipedia.org/wiki/Neurolinguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "HelloTalk Community",
+    "url": "https://www.hellotalk.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "Lingostar AI",
+    "url": "https://www.lingostar.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Jarvisen Translator",
+    "url": "https://jarvisen.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "Cultural Care Au Pair",
+    "url": "https://culturalcare.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Babbel Magazine",
+    "url": "https://www.babbel.com/en/magazine",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "FluentU Blog",
+    "url": "https://www.fluentu.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Spanish",
+    "url": "https://en.wikipedia.org/wiki/Spanish_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Freedom",
+    "url": "https://freedom.to/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Duolingo",
+    "url": "https://www.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Mochi",
+    "url": "https://mochi.cards/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "FutureLearn Languages",
+    "url": "https://www.futurelearn.com/subjects/languages-courses",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "LanguageTool",
+    "url": "https://languagetool.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "LingQ Listening",
+    "url": "https://www.lingq.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "Preply Speaking Practice",
+    "url": "https://preply.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "Oxford Bookworms",
+    "url": "https://elt.oup.com/catalogue/items/global/graded_readers/oxford_bookworms_library",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Mochi",
+    "url": "https://mochi.cards/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "Journaly",
+    "url": "https://journaly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "IPA Chart",
+    "url": "https://en.wikipedia.org/wiki/International_Phonetic_Alphabet",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "International Phonetic Alphabet",
+    "url": "https://en.wikipedia.org/wiki/International_Phonetic_Alphabet",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "MyLanguageExchange",
+    "url": "https://www.mylanguageexchange.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Guided Reading",
+    "url": "https://en.wikipedia.org/wiki/Guided_reading",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "Microsoft Translator",
+    "url": "https://www.microsoft.com/translator",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "EF SET",
+    "url": "https://www.efset.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Inlingua",
+    "url": "https://www.inlingua.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "italki Teachers",
+    "url": "https://www.italki.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Online Book Club",
+    "url": "https://onlinebookclub.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "Journaly",
+    "url": "https://journaly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Phonetics",
+    "url": "https://en.wikipedia.org/wiki/Phonetics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Language Learners Forum",
+    "url": "https://forum.language-learners.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "OpenAI Whisper",
+    "url": "https://openai.com/research/whisper",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Langogo Translator",
+    "url": "https://www.langogo.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "EF Intercâmbio",
+    "url": "https://www.ef.com.br/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "BBC Learning English",
+    "url": "https://www.bbc.co.uk/learningenglish/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "Language Magazine",
+    "url": "https://www.languagemagazine.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "French",
+    "url": "https://en.wikipedia.org/wiki/French_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Mindful Browsing",
+    "url": "https://mindfulbrowsing.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "HelloTalk",
+    "url": "https://www.hellotalk.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Quizlet",
+    "url": "https://quizlet.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "MIT OpenCourseWare",
+    "url": "https://ocw.mit.edu/courses/find-by-topic/#cat=globalStudies&subcat=languages",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Slang.net",
+    "url": "https://slang.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "News in Slow",
+    "url": "https://www.newsinslow.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "Speaking",
+    "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "Project Gutenberg",
+    "url": "https://www.gutenberg.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "RemNote",
+    "url": "https://www.remnote.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "LangCorrect",
+    "url": "https://langcorrect.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "Pronuncian",
+    "url": "https://pronuncian.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Linguística",
+    "url": "https://pt.wikipedia.org/wiki/Lingu%C3%ADstica",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "Polyglot Club",
+    "url": "https://polyglotclub.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Listening-Reading Method",
+    "url": "https://en.wikipedia.org/wiki/Listening%E2%80%93reading",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "Papago",
+    "url": "https://papago.naver.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "HSK",
+    "url": "http://www.chinesetest.cn/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Instituto Cervantes",
+    "url": "https://www.cervantes.es/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "Preply",
+    "url": "https://preply.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Polyglot Book Club",
+    "url": "https://polyglotclub.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "LangCorrect",
+    "url": "https://langcorrect.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Polyglot Conference",
+    "url": "https://polyglotconference.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "MyLanguageExchange",
+    "url": "https://www.mylanguageexchange.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "Replika Chat Practice",
+    "url": "https://replika.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Pocketalk Translator",
+    "url": "https://www.pocketalk.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "Intercultural Exchange Programs – YFU",
+    "url": "https://yfu.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Duolingo Blog",
+    "url": "https://blog.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "LingQ Blog",
+    "url": "https://www.lingq.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Standard Arabic",
+    "url": "https://en.wikipedia.org/wiki/Modern_Standard_Arabic",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Pomofocus",
+    "url": "https://pomofocus.io/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "italki",
+    "url": "https://www.italki.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "RemNote",
+    "url": "https://www.remnote.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "Open Culture Language Courses",
+    "url": "https://www.openculture.com/freelanguagelessons",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Urban Dictionary",
+    "url": "https://www.urbandictionary.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "Podcasts in English",
+    "url": "https://www.podcastsinenglish.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "Speaky",
+    "url": "https://www.gospeaky.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "Readlang",
+    "url": "https://readlang.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "SuperMemo",
+    "url": "https://www.supermemo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "ProWritingAid",
+    "url": "https://prowritingaid.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "Rachel’s English",
+    "url": "https://rachelsenglish.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Morfologia linguística",
+    "url": "https://pt.wikipedia.org/wiki/Morfologia_(lingu%C3%ADstica)",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "Reddit r/Language_Exchange",
+    "url": "https://www.reddit.com/r/Language_Exchange/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Mass Immersion Approach",
+    "url": "https://massimmersionapproach.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "PROMT One",
+    "url": "https://www.online-translator.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "IELTS",
+    "url": "https://www.ielts.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "International House",
+    "url": "https://www.ihworld.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "Rype",
+    "url": "https://www.rypeapp.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Read With Me Club",
+    "url": "https://readwithme.club/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "ProWritingAid",
+    "url": "https://prowritingaid.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Psycholinguistics",
+    "url": "https://en.wikipedia.org/wiki/Psycholinguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Polyglot Club",
+    "url": "https://polyglotclub.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "Speak",
+    "url": "https://www.speak.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Timekettle WT2 Plus",
+    "url": "https://www.timekettle.co/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "ISIC Travel & Exchange",
+    "url": "https://www.isic.org/travel",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Fluent In Tree Months Blog",
+    "url": "https://www.fluentin3months.com/articles/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "Omniglot Blog",
+    "url": "https://www.omniglot.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Bengali",
+    "url": "https://en.wikipedia.org/wiki/Bengali_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "RescueTime",
+    "url": "https://www.rescuetime.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "LingQ",
+    "url": "https://www.lingq.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "SuperMemo",
+    "url": "https://www.supermemo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "Rosetta Stone Online",
+    "url": "https://www.rosettastone.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Wiktionary",
+    "url": "https://www.wiktionary.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "Slow English",
+    "url": "https://slowenglish.info/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "SpeakyPlanet",
+    "url": "https://www.speakyplanet.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "ReadTheory",
+    "url": "https://readtheory.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Tinycards (Duolingo Archive)",
+    "url": "https://tinycards.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "Scribens",
+    "url": "https://www.scribens.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "Sounds of Speech",
+    "url": "https://soundsofspeech.uiowa.edu/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Pragmática",
+    "url": "https://pt.wikipedia.org/wiki/Pragm%C3%A1tica",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "Speaky",
+    "url": "https://www.gospeaky.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Shadowing Technique",
+    "url": "https://en.wikipedia.org/wiki/Language_shadowing",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "Reverso Context",
+    "url": "https://context.reverso.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "JLPT",
+    "url": "https://www.jlpt.jp/e/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Kaplan International",
+    "url": "https://www.kaplaninternational.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "VerbaLearn Tutors",
+    "url": "https://verbalearn.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Reddit Book Club",
+    "url": "https://www.reddit.com/r/bookclub/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "Scribens",
+    "url": "https://www.scribens.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Second Language Acquisition",
+    "url": "https://en.wikipedia.org/wiki/Second_language_acquisition",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Reddit r/languagelearning",
+    "url": "https://www.reddit.com/r/languagelearning/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "TalkPal",
+    "url": "https://www.talkpal.ai/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Travis Touch Go",
+    "url": "https://www.travistranslator.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "Rotary Youth Exchange",
+    "url": "https://www.rotary.org/en/our-programs/youth-exchanges",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "FluentU Blog",
+    "url": "https://www.fluentu.com/blog/learn/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "Polyglot Weekly",
+    "url": "https://polyglotweekly.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Russian",
+    "url": "https://en.wikipedia.org/wiki/Russian_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Todoist",
+    "url": "https://todoist.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Speaking",
+    "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aprendizado com Repetição Espaçada",
+    "name": "Tinycards",
+    "url": "https://tinycards.duolingo.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Plataformas de cursos online",
+    "name": "Udemy",
+    "url": "https://www.udemy.com/courses/teaching-and-academics/language/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "WordReference",
+    "url": "https://www.wordreference.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "Speaking",
+    "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "Tandem",
+    "url": "https://www.tandem.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📖 Leitura (Reading)",
+    "name": "Standard Ebooks",
+    "url": "https://standardebooks.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧩 Memorização",
+    "name": "Clozemaster",
+    "url": "https://www.clozemaster.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✍️ Escrita (Writing)",
+    "name": "Write & Improve",
+    "url": "https://writeandimprove.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔊 Pronúncia & Fonética",
+    "name": "YouGlish",
+    "url": "https://youglish.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Psicolinguística",
+    "url": "https://pt.wikipedia.org/wiki/Psicolingu%C3%ADstica",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤝 Conversação & Troca Linguística",
+    "name": "Tandem",
+    "url": "https://www.tandem.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🧠 Técnicas e métodos de estudo",
+    "name": "Spaced Repetition",
+    "url": "https://en.wikipedia.org/wiki/Spaced_repetition",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌍 Tradutores",
+    "name": "Systran",
+    "url": "https://www.systransoft.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "TestDaF",
+    "url": "https://www.testdaf.de/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🏫 Grandes escolas",
+    "name": "Wall Street English",
+    "url": "https://www.wallstreetenglish.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "👨‍🏫 Professores privados",
+    "name": "Verbling",
+    "url": "https://www.verbling.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Clubes de leitura online",
+    "name": "Silent Book Club",
+    "url": "https://silentbook.club/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🖋️ Correção de textos",
+    "name": "Write & Improve",
+    "url": "https://writeandimprove.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🔬 Aprendizado Avançado / Linguística",
+    "name": "Sociolinguistics",
+    "url": "https://en.wikipedia.org/wiki/Sociolinguistics",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌐 Comunidade",
+    "name": "Tandem Community",
+    "url": "https://www.tandem.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🤖 Ferramentas com IA para idiomas",
+    "name": "Trancy AI",
+    "url": "https://trancy.app/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "⌚ Gadgets / Wearables",
+    "name": "Vasco Translator",
+    "url": "https://vasco-electronics.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "✈️ Agências de imersão e intercâmbio",
+    "name": "STB Student Travel Bureau",
+    "url": "https://www.stb.com.br/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Grammar Girl",
+    "url": "https://www.quickanddirtytips.com/grammar-girl/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📰 Notícias & Revistas de Idiomas",
+    "name": "The Linguist Blog",
+    "url": "https://blog.thelinguist.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Portuguese",
+    "url": "https://en.wikipedia.org/wiki/Portuguese_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎯 Foco nos Estudos",
+    "name": "Zotero",
+    "url": "https://www.zotero.org/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Tandem",
+    "url": "https://www.tandem.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "TED Talks (transcripts)",
+    "url": "https://www.ted.com/talks",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🗣️ Fala (Speaking)",
+    "name": "Verbling",
+    "url": "https://www.verbling.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Semântica",
+    "url": "https://pt.wikipedia.org/wiki/Sem%C3%A2ntica",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "TOEFL",
+    "url": "https://www.ets.org/toefl",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Itchy Feet Comics",
+    "url": "https://www.itchyfeetcomic.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Urdu",
+    "url": "https://en.wikipedia.org/wiki/Urdu",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎧 Escuta (Listening)",
+    "name": "VOA Learning English",
+    "url": "https://learningenglish.voanews.com/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Sociolinguística",
+    "url": "https://pt.wikipedia.org/wiki/Sociolingu%C3%ADstica",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🎓 Testes & Certificações",
+    "name": "TOPIK",
+    "url": "https://www.topik.go.kr/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Lindsay Does Languages Blog",
+    "url": "https://lindsaydoeslanguages.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Indonesian",
+    "url": "https://en.wikipedia.org/wiki/Indonesian_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "subject–verb–object",
+    "url": "https://www.wikiwand.com/en/articles/Subject%E2%80%93verb%E2%80%93object_word_order",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "LingQ Blog",
+    "url": "https://www.lingq.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "German",
+    "url": "https://en.wikipedia.org/wiki/German_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Tense–aspect–mood",
+    "url": "https://en.wikipedia.org/wiki/Tense%E2%80%93aspect%E2%80%93mood",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Luca Lampariello Blog",
+    "url": "https://www.lucalampariello.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Japanese",
+    "url": "https://en.wikipedia.org/wiki/Japanese_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "💡 Conceitos Fundamentais",
+    "name": "Universal grammar",
+    "url": "https://www.wikiwand.com/en/articles/Universal_grammar",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Omniglot Blog",
+    "url": "https://www.omniglot.com/bloggle/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Swahili",
+    "url": "https://en.wikipedia.org/wiki/Swahili_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Preply Blog",
+    "url": "https://preply.com/en/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "🌎 Principais Idiomas",
+    "name": "Marathi",
+    "url": "https://en.wikipedia.org/wiki/Marathi_language",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Slow English",
+    "url": "https://slowenglish.info/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "Speaking Fluently Blog",
+    "url": "https://speakingfluently.com/blog/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "StoryLearning Blog",
+    "url": "https://storylearning.com/blog",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "Blogs de idiomas",
+    "name": "The Mezzofanti Guild Blog",
+    "url": "https://www.mezzoguild.com/blog/",
+    "description": "",
+    "tags": []
+  }
+]</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script defer="" src="script.js"></script></div>
+<!-- PWA Install Button -->
+<button class="pwa-install" hidden="" id="btnInstall">Instalar app</button>
+<script defer="defer" src="./sw-register.js"></script>
 </body>
 </html>
