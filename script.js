@@ -742,7 +742,7 @@ function ensureTopButton(){
 function updateDocTitleAndMeta(){
   const lang=getLang();
   const name = lang==='en' ? 'BiblioVerse — The Language Learning Library' : 'BiblioVerse — A Biblioteca de Aprendizado de Idiomas';
-  const desc = lang==='en' ? 'Searchable catalog of the best social sites by category' : 'Catálogo pesquisável dos melhores sites sociais por categoria';
+  const desc = lang==='en' ? 'Searchable catalog of the best language learning resources by category' : 'Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria';
   document.title = name + ' — ' + desc;
   const meta=document.querySelector('meta[name="description"]'); if(meta){ meta.setAttribute('content', desc); }
 }
