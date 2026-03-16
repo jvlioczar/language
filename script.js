@@ -297,6 +297,7 @@ const I18N = {
   pt: {
     brand:"A Biblioteca de Aprendizado de Idiomas",
     by:"por",
+    and:"e",
     search:"Buscar por nome",
     allCats:"Todas as categorias",
     visit:"Acesse",
@@ -305,7 +306,7 @@ const I18N = {
     noResults:"Nenhum resultado.",
     footerLeadPre:"",
     projectName:"A Biblioteca de Aprendizado de Idiomas",
-    footerLeadPost:"foi idealizada por Julio Cesar Prava e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",
+    footerLeadPost:"foi idealizada por Julio Cesar Prava e Aline Lima e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",
     bookmarkShare:"Salve esse projeto nos seus favoritos e compartilhe!",
     thanks:"Obrigado pela visita!",
     lastUpdate:"Última atualização: Setembro/2025",
@@ -319,6 +320,7 @@ const I18N = {
   en: {
     brand:"The Language Learning Library",
     by:"by",
+    and:"and",
     search:"Search by name",
     allCats:"All categories",
     visit:"Visit",
@@ -327,7 +329,7 @@ const I18N = {
     noResults:"No results.",
     footerLeadPre:"",
     projectName:"The Language Learning Library",
-    footerLeadPost:"was conceived by Julio Cesar Prava and built with the help of AI. The project showcases items selected and reviewed by human curators.",
+    footerLeadPost:"was conceived by Julio Cesar Prava and Aline Lima and built with the help of AI. The project showcases items selected and reviewed by human curators.",
     bookmarkShare:"Bookmark this project and share it!",
     thanks:"Thanks for visiting!",
     lastUpdate:"Last update: September/2025",
@@ -374,6 +376,7 @@ function setLang(lang){
   const totalEl = document.querySelector('.i18n-total'); if(totalEl) totalEl.textContent = dict.total;
   const itemsEl = document.querySelector('.i18n-items'); if(itemsEl) itemsEl.textContent = dict.items;
   const byEl = document.querySelector('.i18n-by'); if(byEl) byEl.textContent = dict.by;
+  const andEl = document.querySelector('.i18n-and'); if(andEl) andEl.textContent = dict.and;
 
   const leadPre = document.querySelector('.i18n-footer-lead-pre'); if(leadPre) leadPre.textContent = dict.footerLeadPre;
   const proj = document.querySelector('.i18n-project-name'); if(proj) proj.textContent = dict.projectName;
