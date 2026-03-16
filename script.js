@@ -29,8 +29,8 @@ function updateMenuToggleUi(){
   // Right arrow to expand, left arrow to collapse
   btn.textContent = open ? '◀' : '▶';
   var lang = (typeof getLang==='function') ? getLang() : 'pt';
-  var lblOpen = lang==='en' ? 'Collapse menu' : (lang==='es' ? 'Colapsar menú' : (lang==='zh' ? '收起菜单' : 'Recolher menu'));
-  var lblClosed = lang==='en' ? 'Expand menu' : (lang==='es' ? 'Expandir menú' : (lang==='zh' ? '展开菜单' : 'Expandir menu'));
+  var lblOpen = lang==='en' ? 'Collapse menu' : (lang==='es' ? 'Colapsar menú' : (lang==='zh' ? '收起菜单' : (lang==='de' ? 'Menü einklappen' : 'Recolher menu')));
+  var lblClosed = lang==='en' ? 'Expand menu' : (lang==='es' ? 'Expandir menú' : (lang==='zh' ? '展开菜单' : (lang==='de' ? 'Menü ausklappen' : 'Expandir menu')));
   btn.setAttribute('aria-label', open ? lblOpen : lblClosed);
   btn.setAttribute('title', open ? lblOpen : lblClosed);
 }
@@ -442,6 +442,84 @@ const CAT_I18N_AR = {
   "🎯 Foco nos Estudos": "التركيز على الدراسة"
 };
 
+// Category i18n mapping – German / Deutsch (keys are PT)
+const CAT_I18N_DE = {
+  "Altruísmo e petições": "Altruismus & Petitionen",
+  "Arte e design": "Kunst & Design",
+  "Bate-papo": "Chat",
+  "Blogs e escrita": "Blogs & Schreiben",
+  "Bookmarking": "Lesezeichen",
+  "Buscadores": "Suchmaschinen",
+  "Ciência e pesquisa": "Wissenschaft & Forschung",
+  "Clubes de assinatura e Crowdfunding": "Abonnementclubs & Crowdfunding",
+  "Comida (avaliação)": "Restaurantbewertungen",
+  "Debate": "Debatte",
+  "Emprego": "Arbeit",
+  "Encontros e eventos": "Treffen & Veranstaltungen",
+  "Esportes e atividades físicas": "Sport & Fitness",
+  "Estadias e viagens (avaliação)": "Unterkunft & Reisebewertungen",
+  "Feed": "Newsfeed",
+  "Figuras-chave": "Schlüsselfiguren",
+  "Filmes e séries (avaliação)": "Film- & Serienbewertungen",
+  "Fóruns": "Foren",
+  "Fotografia": "Fotografie",
+  "Games (avaliação)": "Spielebewertungen",
+  "Gaming": "Gaming",
+  "Gerais": "Allgemein",
+  "IAs": "KI",
+  "Línguas": "Sprachen",
+  "Literatura": "Literatur",
+  "Mais acessados": "Meistbesuchte Seiten",
+  "Marketplaces": "Marktplätze",
+  "Mensagens": "Nachrichten",
+  "Microblogging": "Microblogging",
+  "Música": "Musik",
+  "Música (avaliação)": "Musikbewertungen",
+  "Navegadores web": "Webbrowser",
+  "Negócios (avaliação)": "Unternehmensbewertungen",
+  "Perguntas": "Fragen",
+  "Perguntas pessoais": "Persönliche Fragen",
+  "Profissional": "Beruflich",
+  "Rankings e listas": "Rankings & Listen",
+  "Relacionamento": "Beziehungen",
+  "Streaming": "Streaming",
+  "Termos essenciais": "Grundbegriffe",
+  "Viagem": "Reisen",
+  "Vídeochamada": "Videoanruf",
+  "Vídeo curto": "Kurzvideos",
+  "Vídeo longo": "Langvideos",
+  "Agregador de Links": "Link-Aggregator",
+  "Wikis": "Wikis",
+  "📚 Aplicativos de Idiomas": "Sprachlern-Apps",
+  "🔁 Aprendizado com Repetição Espaçada": "Lernen mit Spaced Repetition",
+  "🎓 Plataformas de cursos online": "Online-Kursplattformen",
+  "📝 Gramática & Vocabulário": "Grammatik & Wortschatz",
+  "🎧 Escuta (Listening)": "Hören (Listening)",
+  "🗣️ Fala (Speaking)": "Sprechen (Speaking)",
+  "📖 Leitura (Reading)": "Lesen (Reading)",
+  "🧩 Memorização": "Einprägen",
+  "✍️ Escrita (Writing)": "Schreiben (Writing)",
+  "🔊 Pronúncia & Fonética": "Aussprache & Phonetik",
+  "💡 Conceitos Fundamentais": "Grundkonzepte",
+  "🤝 Conversação & Troca Linguística": "Konversation & Sprachaustausch",
+  "🧠 Técnicas e métodos de estudo": "Lerntechniken & -methoden",
+  "🌍 Tradutores": "Übersetzer",
+  "📋 Testes & Certificações": "Tests & Zertifizierungen",
+  "🏫 Grandes escolas": "Große Sprachschulen",
+  "👨‍🏫 Professores privados": "Privatlehrer",
+  "📗 Clubes de leitura online": "Online-Lesekreise",
+  "🖋️ Correção de textos": "Textkorrektur",
+  "🔬 Aprendizado Avançado / Linguística": "Fortgeschrittenes Lernen / Linguistik",
+  "🌐 Comunidade": "Gemeinschaft",
+  "🤖 Ferramentas com IA para idiomas": "KI-Tools für Sprachen",
+  "⌚ Gadgets / Wearables": "Gadgets / Wearables",
+  "✈️ Agências de imersão e intercâmbio": "Immersions- & Austauschanbieter",
+  "Blogs de idiomas": "Sprachlernblogs",
+  "📰 Notícias & Revistas de Idiomas": "Sprachnachrichten & -magazine",
+  "🌎 Principais Idiomas": "Hauptsprachen",
+  "🎯 Foco nos Estudos": "Lernfokus"
+};
+
 // Category icon mapping (keys are PT)
 const CAT_ICON = {
   "Altruísmo e petições": "🕊️",
@@ -587,12 +665,12 @@ function stripLeadingEmojiLabel(text){
 
 function catLabel(cat){
   const lang = getLang();
-  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : (lang==='ar' ? (CAT_I18N_AR[cat] || cat) : cat))));
+  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : (lang==='ar' ? (CAT_I18N_AR[cat] || cat) : (lang==='de' ? (CAT_I18N_DE[cat] || cat) : cat)))));
   return stripLeadingEmojiLabel(raw);
 }
 function catSlugFor(cat){
   const lang = getLang();
-  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : (lang==='ar' ? (CAT_I18N_AR[cat] || cat) : cat))));
+  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : (lang==='ar' ? (CAT_I18N_AR[cat] || cat) : (lang==='de' ? (CAT_I18N_DE[cat] || cat) : cat)))));
   return slug(translated);
 }
 
@@ -746,6 +824,29 @@ const I18N = {
     favHelp:"استخدم Ctrl+D (ويندوز) أو Cmd+D (ماك) لحفظ هذه الصفحة في المفضلة.",
     kbdTitle:
 "اختصارات لوحة المفاتيح\n/ – تفعيل شريط البحث\nT – تبديل لون السمة\nL – تبديل اللغة\n\n★ – مميز"
+  },
+  de: {
+    brand:"Die Sprachlernbibliothek",
+    by:"von",
+    and:"und",
+    search:"Nach Name suchen",
+    allCats:"Alle Kategorien",
+    visit:"Besuchen",
+    total:"Gesamt",
+    items:"Einträge",
+    noResults:"Keine Ergebnisse.",
+    footerLeadPre:"",
+    projectName:"Die Sprachlernbibliothek",
+    footerLeadPost:"wurde von Julio Cesar Prava und Aline Lima konzipiert und mit Hilfe von KI entwickelt. Das Projekt vereint von menschlichen Kuratoren ausgewählte und geprüfte Einträge.",
+    bookmarkShare:"Speichere dieses Projekt in deinen Lesezeichen und teile es!",
+    thanks:"Danke für deinen Besuch!",
+    lastUpdate:"Letzte Aktualisierung: März/2026",
+    footernav:"Entdecke Bibliotheken zu anderen nützlichen Themen auf <strong class=\"bverse-strong\">BiblioVerse</strong>.",
+    share:"Teilen",
+    copied:"Link kopiert!",
+    favHelp:"Benutze Strg+D (Windows) oder Cmd+D (Mac), um diese Seite zu bookmarken.",
+    kbdTitle:
+"Tastenkürzel\n/ – Suchleiste fokussieren\nT – Design wechseln\nL – Sprache wechseln\n\n★ – Hervorgehoben"
   }
 };
 
@@ -804,10 +905,19 @@ const SUPERBAR_I18N = {
     music: "الموسيقى",
     coding: "البرمجة",
     social: "التواصل الاجتماعي"
+  },
+  de: {
+    design: "Design",
+    games: "Spiele",
+    language: "Sprachen",
+    ai: "KI",
+    music: "Musik",
+    coding: "Programmierung",
+    social: "Soziale Medien"
   }
 };
 
-function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':(bl.startsWith('hi')?'hi':(bl.startsWith('ar')?'ar':'pt')))); }catch(e){ return 'pt'; } }
+function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':(bl.startsWith('hi')?'hi':(bl.startsWith('ar')?'ar':(bl.startsWith('de')?'de':'pt'))))); }catch(e){ return 'pt'; } }
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
   try{ localStorage.setItem('libia-lang', lang); }catch(e){}
@@ -834,20 +944,20 @@ function setLang(lang){
 
   const tip = document.getElementById('infoTip'); if(tip) tip.textContent = dict.kbdTitle;
 
-  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : (lang==='ar' ? 'ar' : 'pt-br')))));
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : (lang==='ar' ? 'ar' : (lang==='de' ? 'de' : 'pt-br'))))));
   document.documentElement.setAttribute('dir', lang==='ar' ? 'rtl' : 'ltr');
-  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇧🇷' };
+  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇩🇪', de: '🇧🇷' };
   const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = nextLangFlag[lang] || '🇦🇺'; }
 
   // Localize tooltips / aria-labels for toggle buttons and select title
   const themeBtn = document.getElementById('themeToggle');
-  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : (lang==='hi' ? 'थीम बदलें' : (lang==='ar' ? 'تبديل السمة' : 'Alternar tema'))))); }
+  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : (lang==='hi' ? 'थीम बदलें' : (lang==='ar' ? 'تبديل السمة' : (lang==='de' ? 'Design wechseln' : 'Alternar tema')))))); }
   const langBtn2 = document.getElementById('langToggle');
-  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : (lang==='hi' ? 'भाषा बदलें' : (lang==='ar' ? 'تبديل اللغة' : 'Alternar idioma'))))); }
+  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : (lang==='hi' ? 'भाषा बदलें' : (lang==='ar' ? 'تبديل اللغة' : (lang==='de' ? 'Sprache wechseln' : 'Alternar idioma')))))); }
   const infoBtn2 = document.getElementById('infoBtn');
-  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : (lang==='hi' ? 'जानकारी' : (lang==='ar' ? 'معلومات' : 'Informações'))))); }
+  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : (lang==='hi' ? 'जानकारी' : (lang==='ar' ? 'معلومات' : (lang==='de' ? 'Informationen' : 'Informações')))))); }
   const catSel2 = document.getElementById('categoryFilter');
-  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : (lang==='hi' ? 'श्रेणी के अनुसार फ़िल्टर करें' : (lang==='ar' ? 'تصفية حسب الفئة' : 'Filtrar por categoria'))))); }
+  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : (lang==='hi' ? 'श्रेणी के अनुसार फ़िल्टर करें' : (lang==='ar' ? 'تصفية حسب الفئة' : (lang==='de' ? 'Nach Kategorie filtern' : 'Filtrar por categoria')))))); }
 
 // Update superbar labels
   try{
@@ -865,7 +975,7 @@ try{
   if(st){
     st.textContent = lang==='en'
       ? 'BiblioVerse - The Library of Everything'
-      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : (lang==='hi' ? 'BiblioVerse - सब कुछ की लाइब्रेरी' : (lang==='ar' ? 'BiblioVerse - مكتبة كل شيء' : 'BiblioVerse - A Biblioteca de Tudo'))));
+      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : (lang==='hi' ? 'BiblioVerse - सब कुछ की लाइब्रेरी' : (lang==='ar' ? 'BiblioVerse - مكتبة كل شيء' : (lang==='de' ? 'BiblioVerse - Die Bibliothek von Allem' : 'BiblioVerse - A Biblioteca de Tudo')))));
   }
 }catch(e){}
 
@@ -976,7 +1086,7 @@ function createCard(item){
   }else{
     d.setAttribute('aria-disabled','true');
     d.addEventListener('click', (e)=> e.preventDefault());
-    d.title = (getLang()==='en'?'No link available':'Sem link disponível');
+    const _dl=getLang();d.title=(_dl==='en'?'No link available':(_dl==='es'?'Sin enlace disponible':(_dl==='de'?'Kein Link verfügbar':'Sem link disponível')));
   }
 
   const parsed = parseCompanyItem(item.name);
@@ -1002,7 +1112,7 @@ function createCard(item){
   if(isFeatured(item)){
     var star=document.createElement('span');
     star.className='featured-star';
-    star.title=(getLang && getLang()==='en'?'Featured':'Destaque');
+    const _sl=getLang && getLang();star.title=(_sl==='en'?'Featured':(_sl==='es'?'Destacado':(_sl==='de'?'Hervorgehoben':'Destaque')));
     star.textContent='★';
     title.appendChild(star);
   }
@@ -1012,7 +1122,7 @@ function createCard(item){
   if (isEnded(item)) {
     var ended = document.createElement('span');
     ended.className = 'featured-star ended-badge';
-    ended.title = (getLang && getLang()==='en'?'Ended':'Encerrado');
+    const _el=getLang && getLang();ended.title=(_el==='en'?'Ended':(_el==='es'?'Finalizado':(_el==='de'?'Beendet':'Encerrado')));
     ended.textContent = '🪦';
     title.appendChild(ended);
   }
@@ -1057,7 +1167,7 @@ function buildCategory(name, items){
   const anchor=document.createElement('a');
   anchor.className='cat-anchor';
   anchor.href = '#' + catSlugFor(name);
-  anchor.setAttribute('aria-label', (getLang()==='en' ? 'Copy link to category' : 'Copiar link da categoria'));
+  const _bl=getLang();anchor.setAttribute('aria-label', (_bl==='en' ? 'Copy link to category' : (_bl==='es' ? 'Copiar enlace de categoría' : (_bl==='de' ? 'Kategorielink kopieren' : 'Copiar link da categoria'))));
   anchor.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M10.59 13.41a1 1 0 0 0 1.41 1.41l4.24-4.24a3 3 0 0 0-4.24-4.24l-1.06 1.06a1 1 0 1 0 1.41 1.41l1.06-1.06a1 1 0 1 1 1.41 1.41l-4.24 4.24Zm2.82-2.82a1 1 0 0 0-1.41-1.41L7.35 13.4a3 3 0 1 0 4.24 4.24l1.06-1.06a1 1 0 1 0-1.41-1.41l-1.06 1.06a1 1 0 0 1-1.41-1.41l4.24-4.24Z"/>
@@ -1074,7 +1184,7 @@ function buildCategory(name, items){
     // copy full URL
     try{
       await navigator.clipboard.writeText(location.origin + location.pathname + '#' + id);
-      showToast(getLang()==='en' ? I18N.en.copied : I18N.pt.copied);
+      const _cl=getLang();showToast(_cl==='en'?I18N.en.copied:(_cl==='es'?I18N.es.copied:(_cl==='de'?I18N.de.copied:I18N.pt.copied)));
     }catch(err){ /* ignore */ }
   });
 
@@ -1097,7 +1207,7 @@ function buildCategory(name, items){
 
 function populateSelect(categories){
   const sel=document.querySelector('#categoryFilter');clear(sel);
-  const all=document.createElement('option');all.value='all';all.textContent=(getLang()==='en'?I18N.en.allCats:I18N.pt.allCats);sel.appendChild(all);
+  const _pl=getLang();const all=document.createElement('option');all.value='all';all.textContent=(_pl==='en'?I18N.en.allCats:(_pl==='es'?I18N.es.allCats:(_pl==='de'?I18N.de.allCats:I18N.pt.allCats)));sel.appendChild(all);
   Object.keys(categories).sort(compareCats).forEach(cat=>{
     const op=document.createElement('option'); op.value=catSlugFor(cat); op.textContent=catLabel(cat); sel.appendChild(op);
   });
@@ -1119,7 +1229,7 @@ function applyFilters(data){
   const totalCount = Object.values(cats).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0);
   const countEl = document.getElementById('count'); if(countEl) countEl.textContent = totalCount;
 
-  if(names.length===0){const p=document.createElement('p');p.className='no-results';p.textContent=(getLang()==='en'?I18N.en.noResults:I18N.pt.noResults);root.appendChild(p);return;}
+  if(names.length===0){const p=document.createElement('p');p.className='no-results';const _l=getLang();p.textContent=(_l==='en'?I18N.en.noResults:(_l==='es'?I18N.es.noResults:(_l==='de'?I18N.de.noResults:I18N.pt.noResults)));root.appendChild(p);return;}
   const frag=document.createDocumentFragment(); names.forEach(n=>frag.appendChild(buildCategory(n,cats[n])));
   // Replace all at once to avoid empty-state jank
   root.replaceChildren(frag);
@@ -1180,7 +1290,7 @@ function ensureTopButton(){
   if(!b){
     b=document.createElement('button');
     b.id='toTopBtn';
-    b.setAttribute('title', getLang()==='en' ? 'Back to top' : (getLang()==='es' ? 'Volver arriba' : 'Voltar ao topo'));
+    const _tl=getLang();b.setAttribute('title', _tl==='en' ? 'Back to top' : (_tl==='es' ? 'Volver arriba' : (_tl==='de' ? 'Nach oben' : 'Voltar ao topo')));
     b.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-7 7h4v9h6v-9h4z"/></svg>`;
     document.body.appendChild(b);
     b.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
@@ -1189,8 +1299,8 @@ function ensureTopButton(){
 }
 function updateDocTitleAndMeta(){
   const lang=getLang();
-  const name = lang==='en' ? 'BiblioVerse — The Language Learning Library' : (lang==='es' ? 'BiblioVerse — La Biblioteca de Aprendizaje de Idiomas' : 'BiblioVerse — A Biblioteca de Aprendizado de Idiomas');
-  const desc = lang==='en' ? 'Searchable catalog of the best language learning resources by category' : (lang==='es' ? 'Catálogo buscable de los mejores recursos para aprender idiomas por categoría' : 'Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria');
+  const name = lang==='en' ? 'BiblioVerse — The Language Learning Library' : (lang==='es' ? 'BiblioVerse — La Biblioteca de Aprendizaje de Idiomas' : (lang==='de' ? 'BiblioVerse — Die Sprachlernbibliothek' : 'BiblioVerse — A Biblioteca de Aprendizado de Idiomas'));
+  const desc = lang==='en' ? 'Searchable catalog of the best language learning resources by category' : (lang==='es' ? 'Catálogo buscable de los mejores recursos para aprender idiomas por categoría' : (lang==='de' ? 'Durchsuchbarer Katalog der besten Sprachlernressourcen nach Kategorie' : 'Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria'));
   document.title = name + ' — ' + desc;
   const meta=document.querySelector('meta[name="description"]'); if(meta){ meta.setAttribute('content', desc); }
 }
@@ -1204,7 +1314,7 @@ function setupShare(){
     if(navigator.share){
       try{ await navigator.share({ title: document.title, text, url }); return; }catch(e){ /* ignore */ }
     }
-    try{ await navigator.clipboard.writeText(url); const _l=getLang(); alert(_l==='en'?I18N.en.copied:(_l==='es'?I18N.es.copied:I18N.pt.copied)); }catch(e){}
+    try{ await navigator.clipboard.writeText(url); const _l=getLang(); alert(_l==='en'?I18N.en.copied:(_l==='es'?I18N.es.copied:(_l==='de'?I18N.de.copied:I18N.pt.copied))); }catch(e){}
   });
 }
 
@@ -1214,7 +1324,7 @@ function setupFavorite(){
     if(window.external && 'AddFavorite' in window.external){
       try{ window.external.AddFavorite(location.href, document.title); return; }catch(e){}
     }
-    const _lf=getLang(); alert(_lf==='en'?I18N.en.favHelp:(_lf==='es'?I18N.es.favHelp:I18N.pt.favHelp));
+    const _lf=getLang(); alert(_lf==='en'?I18N.en.favHelp:(_lf==='es'?I18N.es.favHelp:(_lf==='de'?I18N.de.favHelp:I18N.pt.favHelp)));
   });
 }
 
@@ -1223,7 +1333,7 @@ function setupInfo(){
   const tip = document.getElementById('infoTip');
   if(!infoBtn || !tip) return;
   // initial content
-  const _li=getLang(); tip.textContent = _li==='en' ? I18N.en.kbdTitle : (_li==='es' ? I18N.es.kbdTitle : I18N.pt.kbdTitle);
+  const _li=getLang(); tip.textContent = _li==='en' ? I18N.en.kbdTitle : (_li==='es' ? I18N.es.kbdTitle : (_li==='de' ? I18N.de.kbdTitle : I18N.pt.kbdTitle));
   // show on hover/focus
   const show = ()=> tip.setAttribute('aria-hidden','false');
   const hide = ()=> tip.setAttribute('aria-hidden','true');
@@ -1303,11 +1413,11 @@ function setupInfo(){
   });
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
-    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇧🇷' };
+    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇩🇪', de: '🇧🇷' };
     langBtn.textContent = _lbMap[getLang()] || '🇦🇺';
     langBtn.addEventListener('click', ()=>{
       const _cur = getLang();
-      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : (_cur==='zh' ? 'hi' : (_cur==='hi' ? 'ar' : 'pt'))));
+      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : (_cur==='zh' ? 'hi' : (_cur==='hi' ? 'ar' : (_cur==='ar' ? 'de' : 'pt')))));
       setLang(next);
       // rebuild categories/select with language-specific slugs
       const cats2=groupBy(data,'category'); populateSelect(cats2);
@@ -1351,7 +1461,7 @@ function setupInfo(){
     const inField = e.target.matches('input,textarea,[contenteditable="true"]');
     if(e.key==='/'&&!inField){ e.preventDefault(); document.querySelector('#search').focus(); }
     if(!inField && e.key && e.key.toLowerCase()==='t'){ e.preventDefault(); const html=document.documentElement; const now=html.getAttribute('data-theme')==='light'?'dark':'light'; setTheme(now); }
-    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':(_lk==='es'?'zh':(_lk==='zh'?'hi':(_lk==='hi'?'ar':'pt')))); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
+    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':(_lk==='es'?'zh':(_lk==='zh'?'hi':(_lk==='hi'?'ar':(_lk==='ar'?'de':'pt'))))); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
   });
 })();
 
