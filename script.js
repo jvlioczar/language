@@ -286,6 +286,84 @@ const CAT_I18N_ZH = {
   "🎯 Foco nos Estudos": "学习专注"
 };
 
+// Category i18n mapping – Hindi / हिन्दी (keys are PT)
+const CAT_I18N_HI = {
+  "Altruísmo e petições": "परोपकार और याचिकाएं",
+  "Arte e design": "कला और डिज़ाइन",
+  "Bate-papo": "चैट",
+  "Blogs e escrita": "ब्लॉग और लेखन",
+  "Bookmarking": "बुकमार्किंग",
+  "Buscadores": "सर्च इंजन",
+  "Ciência e pesquisa": "विज्ञान और शोध",
+  "Clubes de assinatura e Crowdfunding": "सदस्यता क्लब और क्राउडफंडिंग",
+  "Comida (avaliação)": "खाना समीक्षा",
+  "Debate": "बहस",
+  "Emprego": "रोज़गार",
+  "Encontros e eventos": "मुलाकात और कार्यक्रम",
+  "Esportes e atividades físicas": "खेल और शारीरिक गतिविधियां",
+  "Estadias e viagens (avaliação)": "आवास और यात्रा समीक्षा",
+  "Feed": "न्यूज़ फ़ीड",
+  "Figuras-chave": "प्रमुख हस्तियां",
+  "Filmes e séries (avaliação)": "फिल्म और सीरीज़ समीक्षा",
+  "Fóruns": "फ़ोरम",
+  "Fotografia": "फ़ोटोग्राफ़ी",
+  "Games (avaliação)": "गेम समीक्षा",
+  "Gaming": "गेमिंग",
+  "Gerais": "सामान्य",
+  "IAs": "आर्टिफ़िशियल इंटेलिजेंस",
+  "Línguas": "भाषाएं",
+  "Literatura": "साहित्य",
+  "Mais acessados": "सबसे ज़्यादा देखी जाने वाली साइटें",
+  "Marketplaces": "मार्केटप्लेस",
+  "Mensagens": "संदेश",
+  "Microblogging": "माइक्रोब्लॉगिंग",
+  "Música": "संगीत",
+  "Música (avaliação)": "संगीत समीक्षा",
+  "Navegadores web": "वेब ब्राउज़र",
+  "Negócios (avaliação)": "व्यापार समीक्षा",
+  "Perguntas": "प्रश्न",
+  "Perguntas pessoais": "व्यक्तिगत प्रश्न",
+  "Profissional": "व्यावसायिक",
+  "Rankings e listas": "रैंकिंग और सूचियां",
+  "Relacionamento": "रिश्ते",
+  "Streaming": "स्ट्रीमिंग",
+  "Termos essenciais": "आवश्यक शब्द",
+  "Viagem": "यात्रा",
+  "Vídeochamada": "वीडियो कॉल",
+  "Vídeo curto": "शॉर्ट वीडियो",
+  "Vídeo longo": "लंबा वीडियो",
+  "Agregador de Links": "लिंक एग्रीगेटर",
+  "Wikis": "विकी",
+  "📚 Aplicativos de Idiomas": "भाषा सीखने के ऐप्स",
+  "🔁 Aprendizado com Repetição Espaçada": "स्पेस्ड रिपीटिशन लर्निंग",
+  "🎓 Plataformas de cursos online": "ऑनलाइन कोर्स प्लेटफ़ॉर्म",
+  "📝 Gramática & Vocabulário": "व्याकरण और शब्दावली",
+  "🎧 Escuta (Listening)": "सुनना (Listening)",
+  "🗣️ Fala (Speaking)": "बोलना (Speaking)",
+  "📖 Leitura (Reading)": "पढ़ना (Reading)",
+  "🧩 Memorização": "याद करना",
+  "✍️ Escrita (Writing)": "लिखना (Writing)",
+  "🔊 Pronúncia & Fonética": "उच्चारण और ध्वनिविज्ञान",
+  "💡 Conceitos Fundamentais": "मूल अवधारणाएं",
+  "🤝 Conversação & Troca Linguística": "संवाद और भाषा विनिमय",
+  "🧠 Técnicas e métodos de estudo": "अध्ययन तकनीक और विधियां",
+  "🌍 Tradutores": "अनुवादक",
+  "📋 Testes & Certificações": "परीक्षा और प्रमाणन",
+  "🏫 Grandes escolas": "प्रमुख स्कूल",
+  "👨‍🏫 Professores privados": "निजी शिक्षक",
+  "📗 Clubes de leitura online": "ऑनलाइन पुस्तक क्लब",
+  "🖋️ Correção de textos": "लेखन सुधार",
+  "🔬 Aprendizado Avançado / Linguística": "उन्नत अध्ययन / भाषाविज्ञान",
+  "🌐 Comunidade": "समुदाय",
+  "🤖 Ferramentas com IA para idiomas": "भाषा के लिए AI उपकरण",
+  "⌚ Gadgets / Wearables": "गैजेट्स / वेयरेबल्स",
+  "✈️ Agências de imersão e intercâmbio": "इमर्शन और एक्सचेंज एजेंसियां",
+  "Blogs de idiomas": "भाषा ब्लॉग",
+  "📰 Notícias & Revistas de Idiomas": "भाषा समाचार और पत्रिकाएं",
+  "🌎 Principais Idiomas": "प्रमुख भाषाएं",
+  "🎯 Foco nos Estudos": "अध्ययन पर ध्यान"
+};
+
 // Category icon mapping (keys are PT)
 const CAT_ICON = {
   "Altruísmo e petições": "🕊️",
@@ -431,12 +509,12 @@ function stripLeadingEmojiLabel(text){
 
 function catLabel(cat){
   const lang = getLang();
-  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : cat));
+  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : cat)));
   return stripLeadingEmojiLabel(raw);
 }
 function catSlugFor(cat){
   const lang = getLang();
-  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : cat));
+  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : (lang==='hi' ? (CAT_I18N_HI[cat] || cat) : cat)));
   return slug(translated);
 }
 
@@ -544,6 +622,29 @@ const I18N = {
     favHelp:"使用 Ctrl+D（Windows）或 Cmd+D（Mac）将此页面加入书签。",
     kbdTitle:
 "键盘快捷键\n/ – 激活搜索栏\nT – 切换主题颜色\nL – 切换语言\n\n★ – 精选"
+  },
+  hi: {
+    brand:"भाषा सीखने की लाइब्रेरी",
+    by:"द्वारा",
+    and:"और",
+    search:"नाम से खोजें",
+    allCats:"सभी श्रेणियां",
+    visit:"देखें",
+    total:"कुल",
+    items:"आइटम",
+    noResults:"कोई परिणाम नहीं।",
+    footerLeadPre:"",
+    projectName:"भाषा सीखने की लाइब्रेरी",
+    footerLeadPost:"Julio Cesar Prava और Aline Lima द्वारा परिकल्पित, और AI की सहायता से निर्मित। यह परियोजना मानव क्यूरेटर द्वारा चुने और समीक्षित आइटम प्रस्तुत करती है।",
+    bookmarkShare:"इस परियोजना को बुकमार्क करें और साझा करें!",
+    thanks:"आपकी यात्रा के लिए धन्यवाद!",
+    lastUpdate:"अंतिम अपडेट: सितंबर/2025",
+    footernav:"<strong class=\"bverse-strong\">BiblioVerse</strong> पर अन्य उपयोगी विषयों की लाइब्रेरी देखें।",
+    share:"साझा करें",
+    copied:"लिंक कॉपी हो गया!",
+    favHelp:"इस पृष्ठ को बुकमार्क करने के लिए Ctrl+D (Windows) या Cmd+D (Mac) का उपयोग करें।",
+    kbdTitle:
+"कीबोर्ड शॉर्टकट\n/ – सर्च बार सक्रिय करें\nT – थीम रंग बदलें\nL – भाषा बदलें\n\n★ – विशेष"
   }
 };
 
@@ -584,10 +685,19 @@ const SUPERBAR_I18N = {
     music: "音乐",
     coding: "编程",
     social: "社交"
+  },
+  hi: {
+    design: "डिज़ाइन",
+    games: "गेम्स",
+    language: "भाषाएं",
+    ai: "AI",
+    music: "संगीत",
+    coding: "कोडिंग",
+    social: "सोशल"
   }
 };
 
-function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':'pt')); }catch(e){ return 'pt'; } }
+function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':(bl.startsWith('hi')?'hi':'pt'))); }catch(e){ return 'pt'; } }
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
   try{ localStorage.setItem('libia-lang', lang); }catch(e){}
@@ -614,19 +724,19 @@ function setLang(lang){
 
   const tip = document.getElementById('infoTip'); if(tip) tip.textContent = dict.kbdTitle;
 
-  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : 'pt-br')));
-  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇧🇷' };
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : 'pt-br'))));
+  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇧🇷' };
   const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = nextLangFlag[lang] || '🇦🇺'; }
 
   // Localize tooltips / aria-labels for toggle buttons and select title
   const themeBtn = document.getElementById('themeToggle');
-  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : 'Alternar tema'))); }
+  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : (lang==='hi' ? 'थीम बदलें' : 'Alternar tema')))); }
   const langBtn2 = document.getElementById('langToggle');
-  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : 'Alternar idioma'))); }
+  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : (lang==='hi' ? 'भाषा बदलें' : 'Alternar idioma')))); }
   const infoBtn2 = document.getElementById('infoBtn');
-  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : 'Informações'))); }
+  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : (lang==='hi' ? 'जानकारी' : 'Informações')))); }
   const catSel2 = document.getElementById('categoryFilter');
-  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : 'Filtrar por categoria'))); }
+  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : (lang==='hi' ? 'श्रेणी के अनुसार फ़िल्टर करें' : 'Filtrar por categoria')))); }
 
 // Update superbar labels
   try{
@@ -644,7 +754,7 @@ try{
   if(st){
     st.textContent = lang==='en'
       ? 'BiblioVerse - The Library of Everything'
-      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : 'BiblioVerse - A Biblioteca de Tudo'));
+      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : (lang==='hi' ? 'BiblioVerse - सब कुछ की लाइब्रेरी' : 'BiblioVerse - A Biblioteca de Tudo')));
   }
 }catch(e){}
 
@@ -1082,11 +1192,11 @@ function setupInfo(){
   });
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
-    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇧🇷' };
+    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇧🇷' };
     langBtn.textContent = _lbMap[getLang()] || '🇦🇺';
     langBtn.addEventListener('click', ()=>{
       const _cur = getLang();
-      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : 'pt'));
+      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : (_cur==='zh' ? 'hi' : 'pt')));
       setLang(next);
       // rebuild categories/select with language-specific slugs
       const cats2=groupBy(data,'category'); populateSelect(cats2);
