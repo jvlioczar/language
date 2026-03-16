@@ -1,6 +1,6 @@
 {
-  "name": "The Language Learning Library",
-  "short_name": "Language Library",
+  "name": "A Biblioteca de Aprendizado de Idiomas",
+  "short_name": "BiblioVerse",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#0e1117",
@@ -17,5 +17,5 @@
       "type": "image/png"
     }
   ],
-  "description": "Searchable catalog of language learning resources by category."
+  "description": "Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria."
 }
