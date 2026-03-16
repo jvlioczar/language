@@ -29,8 +29,8 @@ function updateMenuToggleUi(){
   // Right arrow to expand, left arrow to collapse
   btn.textContent = open ? '◀' : '▶';
   var lang = (typeof getLang==='function') ? getLang() : 'pt';
-  var lblOpen = lang==='en' ? 'Collapse menu' : (lang==='es' ? 'Colapsar menú' : 'Recolher menu');
-  var lblClosed = lang==='en' ? 'Expand menu' : (lang==='es' ? 'Expandir menú' : 'Expandir menu');
+  var lblOpen = lang==='en' ? 'Collapse menu' : (lang==='es' ? 'Colapsar menú' : (lang==='zh' ? '收起菜单' : 'Recolher menu'));
+  var lblClosed = lang==='en' ? 'Expand menu' : (lang==='es' ? 'Expandir menú' : (lang==='zh' ? '展开菜单' : 'Expandir menu'));
   btn.setAttribute('aria-label', open ? lblOpen : lblClosed);
   btn.setAttribute('title', open ? lblOpen : lblClosed);
 }
@@ -208,6 +208,84 @@ const CAT_I18N_ES = {
   "🎯 Foco nos Estudos": "Enfoque en los Estudios"
 };
 
+// Category i18n mapping – Mandarin Chinese / 普通话 (keys are PT)
+const CAT_I18N_ZH = {
+  "Altruísmo e petições": "利他主义与请愿",
+  "Arte e design": "艺术与设计",
+  "Bate-papo": "聊天",
+  "Blogs e escrita": "博客与写作",
+  "Bookmarking": "书签",
+  "Buscadores": "搜索引擎",
+  "Ciência e pesquisa": "科学与研究",
+  "Clubes de assinatura e Crowdfunding": "订阅俱乐部与众筹",
+  "Comida (avaliação)": "美食评测",
+  "Debate": "辩论",
+  "Emprego": "求职",
+  "Encontros e eventos": "聚会与活动",
+  "Esportes e atividades físicas": "运动与健身",
+  "Estadias e viagens (avaliação)": "住宿与旅行评测",
+  "Feed": "新闻推送",
+  "Figuras-chave": "关键人物",
+  "Filmes e séries (avaliação)": "电影与剧集评测",
+  "Fóruns": "论坛",
+  "Fotografia": "摄影",
+  "Games (avaliação)": "游戏评测",
+  "Gaming": "游戏",
+  "Gerais": "综合",
+  "IAs": "人工智能",
+  "Línguas": "语言",
+  "Literatura": "文学",
+  "Mais acessados": "最常访问的网站",
+  "Marketplaces": "市场",
+  "Mensagens": "即时通讯",
+  "Microblogging": "微博",
+  "Música": "音乐",
+  "Música (avaliação)": "音乐评测",
+  "Navegadores web": "网络浏览器",
+  "Negócios (avaliação)": "商业评测",
+  "Perguntas": "问答",
+  "Perguntas pessoais": "个人问题",
+  "Profissional": "职业",
+  "Rankings e listas": "排名与列表",
+  "Relacionamento": "人际关系",
+  "Streaming": "流媒体",
+  "Termos essenciais": "基本术语",
+  "Viagem": "旅行",
+  "Vídeochamada": "视频通话",
+  "Vídeo curto": "短视频",
+  "Vídeo longo": "长视频",
+  "Agregador de Links": "链接聚合",
+  "Wikis": "维基",
+  "📚 Aplicativos de Idiomas": "语言学习应用",
+  "🔁 Aprendizado com Repetição Espaçada": "间隔重复学习",
+  "🎓 Plataformas de cursos online": "在线课程平台",
+  "📝 Gramática & Vocabulário": "语法与词汇",
+  "🎧 Escuta (Listening)": "听力",
+  "🗣️ Fala (Speaking)": "口语",
+  "📖 Leitura (Reading)": "阅读",
+  "🧩 Memorização": "记忆",
+  "✍️ Escrita (Writing)": "写作",
+  "🔊 Pronúncia & Fonética": "发音与语音学",
+  "💡 Conceitos Fundamentais": "基础概念",
+  "🤝 Conversação & Troca Linguística": "对话与语言交流",
+  "🧠 Técnicas e métodos de estudo": "学习技巧与方法",
+  "🌍 Tradutores": "翻译工具",
+  "📋 Testes & Certificações": "测试与认证",
+  "🏫 Grandes escolas": "知名学校",
+  "👨‍🏫 Professores privados": "私人教师",
+  "📗 Clubes de leitura online": "在线读书俱乐部",
+  "🖋️ Correção de textos": "文字校正",
+  "🔬 Aprendizado Avançado / Linguística": "高级学习 / 语言学",
+  "🌐 Comunidade": "社区",
+  "🤖 Ferramentas com IA para idiomas": "语言学习AI工具",
+  "⌚ Gadgets / Wearables": "智能设备 / 可穿戴设备",
+  "✈️ Agências de imersão e intercâmbio": "沉浸式学习与交流机构",
+  "Blogs de idiomas": "语言学习博客",
+  "📰 Notícias & Revistas de Idiomas": "语言新闻与杂志",
+  "🌎 Principais Idiomas": "主要语言",
+  "🎯 Foco nos Estudos": "学习专注"
+};
+
 // Category icon mapping (keys are PT)
 const CAT_ICON = {
   "Altruísmo e petições": "🕊️",
@@ -353,12 +431,12 @@ function stripLeadingEmojiLabel(text){
 
 function catLabel(cat){
   const lang = getLang();
-  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : cat);
+  const raw = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : cat));
   return stripLeadingEmojiLabel(raw);
 }
 function catSlugFor(cat){
   const lang = getLang();
-  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : cat);
+  const translated = lang==='en' ? (CAT_I18N[cat] || cat) : (lang==='es' ? (CAT_I18N_ES[cat] || cat) : (lang==='zh' ? (CAT_I18N_ZH[cat] || cat) : cat));
   return slug(translated);
 }
 
@@ -443,6 +521,29 @@ const I18N = {
     favHelp:"Usa Ctrl+D (Windows) o Cmd+D (Mac) para marcar esta página.",
     kbdTitle:
 "Atajos de teclado\n/ – Activar la barra de búsqueda\nT – Cambiar color del tema\nL – Cambiar idioma\n\n★ – Destacado"
+  },
+  zh: {
+    brand:"语言学习图书馆",
+    by:"作者",
+    and:"和",
+    search:"按名称搜索",
+    allCats:"所有类别",
+    visit:"访问",
+    total:"总计",
+    items:"项目",
+    noResults:"无结果。",
+    footerLeadPre:"",
+    projectName:"语言学习图书馆",
+    footerLeadPost:"由 Julio Cesar Prava 和 Aline Lima 构想，并在 AI 的协助下构建。该项目收录了由人工编辑精选和审核的内容。",
+    bookmarkShare:"将此项目加入收藏并分享！",
+    thanks:"感谢您的访问！",
+    lastUpdate:"最后更新：2025年9月",
+    footernav:"在 <strong class=\"bverse-strong\">BiblioVerse</strong> 上访问其他有用主题的图书馆。",
+    share:"分享",
+    copied:"链接已复制！",
+    favHelp:"使用 Ctrl+D（Windows）或 Cmd+D（Mac）将此页面加入书签。",
+    kbdTitle:
+"键盘快捷键\n/ – 激活搜索栏\nT – 切换主题颜色\nL – 切换语言\n\n★ – 精选"
   }
 };
 
@@ -474,10 +575,19 @@ const SUPERBAR_I18N = {
     music: "Música",
     coding: "Programación",
     social: "Redes Sociales"
+  },
+  zh: {
+    design: "设计",
+    games: "游戏",
+    language: "语言",
+    ai: "人工智能",
+    music: "音乐",
+    coding: "编程",
+    social: "社交"
   }
 };
 
-function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':'pt'); }catch(e){ return 'pt'; } }
+function getLang(){ try{ const saved=localStorage.getItem('libia-lang'); if(saved) return saved; const bl=(navigator.language||'pt').toLowerCase(); return bl.startsWith('en')?'en':(bl.startsWith('es')?'es':(bl.startsWith('zh')?'zh':'pt')); }catch(e){ return 'pt'; } }
 function setLang(lang){
   const dict = I18N[lang] || I18N.pt;
   try{ localStorage.setItem('libia-lang', lang); }catch(e){}
@@ -504,19 +614,19 @@ function setLang(lang){
 
   const tip = document.getElementById('infoTip'); if(tip) tip.textContent = dict.kbdTitle;
 
-  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : 'pt-br'));
-  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇧🇷' };
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : 'pt-br')));
+  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇧🇷' };
   const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = nextLangFlag[lang] || '🇦🇺'; }
 
   // Localize tooltips / aria-labels for toggle buttons and select title
   const themeBtn = document.getElementById('themeToggle');
-  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : 'Alternar tema')); }
+  if(themeBtn){ themeBtn.setAttribute('aria-label', lang==='en' ? 'Toggle theme' : (lang==='es' ? 'Cambiar tema' : (lang==='zh' ? '切换主题' : 'Alternar tema'))); }
   const langBtn2 = document.getElementById('langToggle');
-  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : 'Alternar idioma')); }
+  if(langBtn2){ langBtn2.setAttribute('aria-label', lang==='en' ? 'Toggle language' : (lang==='es' ? 'Cambiar idioma' : (lang==='zh' ? '切换语言' : 'Alternar idioma'))); }
   const infoBtn2 = document.getElementById('infoBtn');
-  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : 'Informações')); }
+  if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : 'Informações'))); }
   const catSel2 = document.getElementById('categoryFilter');
-  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : 'Filtrar por categoria')); }
+  if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : 'Filtrar por categoria'))); }
 
 // Update superbar labels
   try{
@@ -534,7 +644,7 @@ try{
   if(st){
     st.textContent = lang==='en'
       ? 'BiblioVerse - The Library of Everything'
-      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : 'BiblioVerse - A Biblioteca de Tudo');
+      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : 'BiblioVerse - A Biblioteca de Tudo'));
   }
 }catch(e){}
 
@@ -972,11 +1082,11 @@ function setupInfo(){
   });
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
-    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇧🇷' };
+    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇧🇷' };
     langBtn.textContent = _lbMap[getLang()] || '🇦🇺';
     langBtn.addEventListener('click', ()=>{
       const _cur = getLang();
-      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : 'pt');
+      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : 'pt'));
       setLang(next);
       // rebuild categories/select with language-specific slugs
       const cats2=groupBy(data,'category'); populateSelect(cats2);
@@ -1020,7 +1130,7 @@ function setupInfo(){
     const inField = e.target.matches('input,textarea,[contenteditable="true"]');
     if(e.key==='/'&&!inField){ e.preventDefault(); document.querySelector('#search').focus(); }
     if(!inField && e.key && e.key.toLowerCase()==='t'){ e.preventDefault(); const html=document.documentElement; const now=html.getAttribute('data-theme')==='light'?'dark':'light'; setTheme(now); }
-    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':'pt'); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
+    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':(_lk==='es'?'zh':'pt')); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
   });
 })();
 
