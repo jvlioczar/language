@@ -1435,6 +1435,8 @@ function setupInfo(){
     applyFilters(data);
     if(history.replaceState){ history.replaceState(null,'',location.pathname + location.search); } else { location.hash=''; }
     updateDocTitleAndMeta();
+    // Rebuild sidebar immediately with translated slugs and updated icons
+    if(typeof window.__rebuildSideMenu === 'function'){ window.__rebuildSideMenu(); }
     window.scrollTo({ top: 0, behavior: 'smooth' });
     scrollSidebarToId('all');
     var sideScroll = document.getElementById('sideScroll');
