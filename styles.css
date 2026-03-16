@@ -182,7 +182,7 @@ select{min-width:180px}
 /* Language picker dropdown */
 .lang-picker{ position:relative; display:inline-flex; }
 .lang-dropdown{
-  display:none; position:absolute; bottom:calc(100% + 6px); right:0;
+  display:none; position:absolute; top:calc(100% + 6px); right:0;
   background:var(--bg-soft); border:1px solid var(--border);
   border-radius:14px; padding:6px;
   box-shadow: -3px -3px 6px var(--shadow-hi), 5px 5px 12px var(--shadow-lo);
