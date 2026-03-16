@@ -946,8 +946,8 @@ function setLang(lang){
 
   document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : (lang==='ar' ? 'ar' : (lang==='de' ? 'de' : 'pt-br'))))));
   document.documentElement.setAttribute('dir', lang==='ar' ? 'rtl' : 'ltr');
-  const nextLangFlag = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇩🇪', de: '🇧🇷' };
-  const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = nextLangFlag[lang] || '🇦🇺'; }
+  const _curLangFlag = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸', zh: '🇨🇳', hi: '🇮🇳', ar: '🇸🇦', de: '🇩🇪' };
+  const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = _curLangFlag[lang] || '🇧🇷'; }
 
   // Localize tooltips / aria-labels for toggle buttons and select title
   const themeBtn = document.getElementById('themeToggle');
@@ -1207,7 +1207,7 @@ function buildCategory(name, items){
 
 function populateSelect(categories){
   const sel=document.querySelector('#categoryFilter');clear(sel);
-  const _pl=getLang();const all=document.createElement('option');all.value='all';all.textContent=(_pl==='en'?I18N.en.allCats:(_pl==='es'?I18N.es.allCats:(_pl==='de'?I18N.de.allCats:I18N.pt.allCats)));sel.appendChild(all);
+  const _pl=getLang();const all=document.createElement('option');all.value='all';all.textContent=(I18N[_pl]||I18N.pt).allCats;sel.appendChild(all);
   Object.keys(categories).sort(compareCats).forEach(cat=>{
     const op=document.createElement('option'); op.value=catSlugFor(cat); op.textContent=catLabel(cat); sel.appendChild(op);
   });
@@ -1411,29 +1411,43 @@ function setupInfo(){
     const now=html.getAttribute('data-theme')==='light'?'dark':'light';
     setTheme(now);
   });
+  // Language picker dropdown
+  const _langFlagMap = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸', zh: '🇨🇳', hi: '🇮🇳', ar: '🇸🇦', de: '🇩🇪' };
+  const langPicker = document.getElementById('langPicker');
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
-    const _lbMap = { pt: '🇦🇺', en: '🇪🇸', es: '🇨🇳', zh: '🇮🇳', hi: '🇸🇦', ar: '🇩🇪', de: '🇧🇷' };
-    langBtn.textContent = _lbMap[getLang()] || '🇦🇺';
-    langBtn.addEventListener('click', ()=>{
-      const _cur = getLang();
-      const next = _cur==='pt' ? 'en' : (_cur==='en' ? 'es' : (_cur==='es' ? 'zh' : (_cur==='zh' ? 'hi' : (_cur==='hi' ? 'ar' : (_cur==='ar' ? 'de' : 'pt')))));
-      setLang(next);
-      // rebuild categories/select with language-specific slugs
-      const cats2=groupBy(data,'category'); populateSelect(cats2);
-      sel.value = 'all';
-      applyFilters(data);
-      // clear hash and update title/meta
-      if(history.replaceState){ history.replaceState(null,'',location.pathname + location.search); } else { location.hash=''; }
-      updateDocTitleAndMeta();
-      // Scroll main page to top and reset sidebar scroll as if 'back to top' was clicked
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      scrollSidebarToId('all');
-      var sideScroll = document.getElementById('sideScroll');
-      if (sideScroll) { try { sideScroll.scrollTo({ top: 0, behavior: 'auto' }); } catch(e) { sideScroll.scrollTop = 0; } }
-
+    langBtn.textContent = _langFlagMap[getLang()] || '🇧🇷';
+    langBtn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      langPicker.classList.toggle('open');
+      // mark active option
+      document.querySelectorAll('.lang-option').forEach(btn=>{
+        btn.classList.toggle('active', btn.dataset.lang === getLang());
+      });
     });
   }
+  function _applyLang(lang){
+    setLang(lang);
+    if(langBtn) langBtn.textContent = _langFlagMap[lang] || '🇧🇷';
+    // rebuild categories/select with language-specific slugs
+    const cats2=groupBy(data,'category'); populateSelect(cats2);
+    sel.value = 'all';
+    applyFilters(data);
+    if(history.replaceState){ history.replaceState(null,'',location.pathname + location.search); } else { location.hash=''; }
+    updateDocTitleAndMeta();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollSidebarToId('all');
+    var sideScroll = document.getElementById('sideScroll');
+    if (sideScroll) { try { sideScroll.scrollTo({ top: 0, behavior: 'auto' }); } catch(e) { sideScroll.scrollTop = 0; } }
+  }
+  document.querySelectorAll('.lang-option').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      langPicker.classList.remove('open');
+      _applyLang(btn.dataset.lang);
+    });
+  });
+  document.addEventListener('click', ()=>{ if(langPicker) langPicker.classList.remove('open'); });
 
   
   // hash navigation sync
@@ -1461,7 +1475,7 @@ function setupInfo(){
     const inField = e.target.matches('input,textarea,[contenteditable="true"]');
     if(e.key==='/'&&!inField){ e.preventDefault(); document.querySelector('#search').focus(); }
     if(!inField && e.key && e.key.toLowerCase()==='t'){ e.preventDefault(); const html=document.documentElement; const now=html.getAttribute('data-theme')==='light'?'dark':'light'; setTheme(now); }
-    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); const _lk=getLang(); const next=_lk==='pt'?'en':(_lk==='en'?'es':(_lk==='es'?'zh':(_lk==='zh'?'hi':(_lk==='hi'?'ar':(_lk==='ar'?'de':'pt'))))); setLang(next); const cats3=groupBy(data,'category'); populateSelect(cats3); document.getElementById('categoryFilter').value = document.getElementById('categoryFilter').value || defaultCat; applyFilters(data); }
+    if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); if(langPicker){ langPicker.classList.toggle('open'); document.querySelectorAll('.lang-option').forEach(btn=>{ btn.classList.toggle('active', btn.dataset.lang === getLang()); }); } }
   });
 })();
 
@@ -1645,14 +1659,22 @@ const ICONS = {
 function iconFor(slug){
   var s = String(slug||'').toLowerCase();
 
-  // 1) Try new mapping via CAT_I18N (PT->EN) + CAT_ICON (emoji by PT)
+  // 1) Try new mapping via CAT_I18N (PT->*) + CAT_ICON (emoji by PT)
   try{
-    // We compare the sidebar slug against both PT and EN slugs derived from CAT_I18N
+    const _allMaps = [CAT_I18N, CAT_I18N_ES, CAT_I18N_ZH, CAT_I18N_HI, CAT_I18N_AR, CAT_I18N_DE];
+    // Build reverse lookup: translated-slug -> ptCat
     for (var ptCat in CAT_I18N){
       if (!Object.prototype.hasOwnProperty.call(CAT_I18N, ptCat)) continue;
-      var enCat = CAT_I18N[ptCat];
-      if (slugify(ptCat) === s || slugify(enCat) === s){
+      if (slugify(ptCat) === s){
         if (CAT_ICON && CAT_ICON[ptCat]) return CAT_ICON[ptCat];
+      }
+      for (var _mi = 0; _mi < _allMaps.length; _mi++){
+        var _map = _allMaps[_mi];
+        if (_map && Object.prototype.hasOwnProperty.call(_map, ptCat)){
+          if (slugify(_map[ptCat]) === s){
+            if (CAT_ICON && CAT_ICON[ptCat]) return CAT_ICON[ptCat];
+          }
+        }
       }
     }
   }catch(e){ /* noop */ }
@@ -1730,7 +1752,7 @@ var hash = (location.hash||'').replace('#','');
   var a = document.createElement('a');
   a.href = '#';
   a.className = 'sidepush-item';
-  a.innerHTML = '<span class="ico">'+iconFor('home')+'</span><span class="label">'+(getLang()==='en'?I18N.en.allCats:I18N.pt.allCats)+'</span>';
+  a.innerHTML = '<span class="ico">'+iconFor('home')+'</span><span class="label">'+(I18N[getLang()]||I18N.pt).allCats+'</span>';
   a.addEventListener('click', function(ev){
     ev.preventDefault();
     // expand menu on icon click to reveal labels
@@ -1801,7 +1823,7 @@ var hash = (location.hash||'').replace('#','');
       setTimeout(buildSideMenu, 50);
       var title = document.querySelector('.sidepush-title.i18n-brand');
       if(title){
-        title.textContent = (lang==='en' ? (I18N.en.brand) : (I18N.pt.brand));
+        title.textContent = (I18N[lang]||I18N.pt).brand;
       }
       var hb = document.getElementById('menuToggle');
       if(hb){

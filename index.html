@@ -68,7 +68,18 @@
 <select class="mono" id="categoryFilter" title="Filtrar por categoria"></select>
 <div class="control-group">
 <button aria-label="Alternar tema" class="toggle" id="themeToggle" type="button">☀️</button>
-<button aria-label="Alternar idioma" class="toggle" id="langToggle" type="button">🇦🇺</button>
+<div class="lang-picker" id="langPicker">
+<button aria-label="Alternar idioma" class="toggle" id="langToggle" type="button">🇧🇷</button>
+<div class="lang-dropdown" id="langDropdown" role="listbox" aria-label="Selecionar idioma">
+<button class="lang-option" data-lang="pt" title="Português">🇧🇷</button>
+<button class="lang-option" data-lang="en" title="English">🇺🇸</button>
+<button class="lang-option" data-lang="es" title="Español">🇪🇸</button>
+<button class="lang-option" data-lang="zh" title="中文">🇨🇳</button>
+<button class="lang-option" data-lang="hi" title="हिंदी">🇮🇳</button>
+<button class="lang-option" data-lang="ar" title="العربية">🇸🇦</button>
+<button class="lang-option" data-lang="de" title="Deutsch">🇩🇪</button>
+</div>
+</div>
 <button aria-label="Informações" class="toggle info" id="infoBtn" type="button">ℹ️</button>
 <div aria-hidden="true" class="infotooltip" id="infoTip" role="tooltip"></div>
 </div>
