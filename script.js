@@ -125,7 +125,6 @@ const CAT_I18N = {
   "⌚ Gadgets / Wearables": "Gadgets / Wearables",
   "✈️ Agências de imersão e intercâmbio": "Immersion & Exchange Agencies",
   "Blogs de idiomas": "Language Learning Blogs",
-  "📰 Notícias & Revistas de Idiomas": "Language News & Magazines",
   "🌎 Principais Idiomas": "Major Languages",
   "🎯 Foco nos Estudos": "Study Focus"
 };
@@ -203,7 +202,6 @@ const CAT_I18N_ES = {
   "⌚ Gadgets / Wearables": "Gadgets / Wearables",
   "✈️ Agências de imersão e intercâmbio": "Agencias de Inmersión e Intercambio",
   "Blogs de idiomas": "Blogs de Idiomas",
-  "📰 Notícias & Revistas de Idiomas": "Noticias y Revistas de Idiomas",
   "🌎 Principais Idiomas": "Principales Idiomas",
   "🎯 Foco nos Estudos": "Enfoque en los Estudios"
 };
@@ -281,7 +279,6 @@ const CAT_I18N_ZH = {
   "⌚ Gadgets / Wearables": "智能设备 / 可穿戴设备",
   "✈️ Agências de imersão e intercâmbio": "沉浸式学习与交流机构",
   "Blogs de idiomas": "语言学习博客",
-  "📰 Notícias & Revistas de Idiomas": "语言新闻与杂志",
   "🌎 Principais Idiomas": "主要语言",
   "🎯 Foco nos Estudos": "学习专注"
 };
@@ -359,7 +356,6 @@ const CAT_I18N_HI = {
   "⌚ Gadgets / Wearables": "गैजेट्स / वेयरेबल्स",
   "✈️ Agências de imersão e intercâmbio": "इमर्शन और एक्सचेंज एजेंसियां",
   "Blogs de idiomas": "भाषा ब्लॉग",
-  "📰 Notícias & Revistas de Idiomas": "भाषा समाचार और पत्रिकाएं",
   "🌎 Principais Idiomas": "प्रमुख भाषाएं",
   "🎯 Foco nos Estudos": "अध्ययन पर ध्यान"
 };
@@ -437,7 +433,6 @@ const CAT_I18N_AR = {
   "⌚ Gadgets / Wearables": "الأجهزة الذكية / الملبوسات",
   "✈️ Agências de imersão e intercâmbio": "وكالات الانغماس والتبادل",
   "Blogs de idiomas": "مدونات اللغات",
-  "📰 Notícias & Revistas de Idiomas": "أخبار ومجلات اللغات",
   "🌎 Principais Idiomas": "اللغات الرئيسية",
   "🎯 Foco nos Estudos": "التركيز على الدراسة"
 };
@@ -515,7 +510,6 @@ const CAT_I18N_DE = {
   "⌚ Gadgets / Wearables": "Gadgets / Wearables",
   "✈️ Agências de imersão e intercâmbio": "Immersions- & Austauschanbieter",
   "Blogs de idiomas": "Sprachlernblogs",
-  "📰 Notícias & Revistas de Idiomas": "Sprachnachrichten & -magazine",
   "🌎 Principais Idiomas": "Hauptsprachen",
   "🎯 Foco nos Estudos": "Lernfokus"
 };
@@ -593,7 +587,6 @@ const CAT_ICON = {
   "⌚ Gadgets / Wearables": "⌚",
   "✈️ Agências de imersão e intercâmbio": "✈️",
   "Blogs de idiomas": "📰",
-  "📰 Notícias & Revistas de Idiomas": "📰",
   "🌎 Principais Idiomas": "🌎",
   "🎯 Foco nos Estudos": "🎯"
 };
