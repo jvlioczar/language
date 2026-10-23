@@ -1,45 +1,29 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<!-- Ícones principais --><!-- Apple (iOS) -->
-<link href="./images/icon_192.png" rel="apple-touch-icon"/>
-<!-- Preload opcional para o SVG se quiser -->
-<link as="image" href="./images/icon.svg" imagesizes="23px" rel="preload"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>BiblioVerse — A Biblioteca de Aprendizado de Idiomas — Catálogo pesquisável dos melhores recursos para aprender idiomas</title>
+<meta content="Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria. Uma biblioteca essencial para estudantes de línguas, professores e curiosos." name="description"/>
+<link href="https://language.biblioverse.org/" rel="canonical"/>
 <meta content="#0e1117" name="theme-color"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
-<title>BiblioVerse — A Biblioteca de Aprendizado de Idiomas — Catálogo pesquisável dos melhores recursos para aprender idiomas</title>
 <!-- App icons -->
 <link href="images/icon.svg" rel="icon" type="image/svg+xml"/>
 <link href="images/icon_192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="images/icon_512.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="images/icon_192.png" rel="apple-touch-icon"/>
-<meta content="#0e1117" name="theme-color"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<meta content="Catálogo pesquisável dos melhores recursos para aprender idiomas por categoria. Uma biblioteca essencial para estudantes de línguas, professores e curiosos." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/></noscript>
 <link as="style" href="styles.css" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="styles.css" rel="stylesheet"/></noscript>
-<link href="./manifest.webmanifest" rel="manifest"/>
+<script src="https://biblioverse.org/superbar.js" defer></script>
 </head>
 <body>
-<!-- Super-bar: 8 equal tabs across the full width -->
-<nav aria-label="Bibliotecas" class="superbar">
-<div class="superbar-toggle"><span class="superbar-title i18n-superbar-title">BiblioVerse - A Biblioteca de Tudo</span> <span aria-hidden="true" class="icon-burger"><i></i><i></i><i></i></span><span aria-hidden="true" class="icon-close">✕</span></div>
-<ul class="superbar-list">
-<li class="superbar-item"><a data-key="design" href="https://design.biblioverse.org">Design</a></li>
-<li class="superbar-item"><a data-key="games" href="https://games.biblioverse.org">Games</a></li>
-<li class="superbar-item active"><a data-key="language" href="https://language.biblioverse.org">Idiomas</a></li>
-<li class="superbar-item"><a data-key="ai" href="https://ai.biblioverse.org">IA</a></li>
-<li class="superbar-item"><a data-key="music" href="https://music.biblioverse.org">Música</a></li>
-<li class="superbar-item"><a data-key="coding" href="https://code.biblioverse.org">Programação</a></li>
-<li class="superbar-item"><a data-key="social" href="https://social.biblioverse.org">Redes Sociais</a></li>
-</ul>
-</nav>
+<!-- BiblioVerse Superbar -->
+<nav id="bvbar" class="bvbar" data-current="language" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:44px;z-index:9000;background:linear-gradient(90deg,#4f7cff,#7a5cff)"><a href="https://biblioverse.org" style="color:#fff;line-height:44px;padding:0 14px;font-weight:700;text-decoration:none;font-family:sans-serif">BiblioVerse</a></nav>
 <aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button aria-label="Expandir menu" class="side-toggle" id="menuToggle" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
 <div class="header-inner container">
 <div class="brand-wrap">
@@ -57,14 +41,12 @@
     </span>
 </h1>
 <span class="byline">
-<span class="i18n-by">Idealizada por</span>
-<a class="bylink" href="https://jvlio.biblioverse.org" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
-<span class="i18n-and">e</span>
+<span class="i18n-by">por</span>
 <a class="bylink" href="https://instagram.com/teacheralinelima" rel="noopener noreferrer" target="_blank">Aline Lima</a>
 </span>
 </div>
 <div class="controls">
-<input autofocus="" class="mono" id="search" placeholder="Buscar por nome" type="search"/>
+<input class="mono" id="search" placeholder="Buscar por nome" type="search"/>
 <select class="mono" id="categoryFilter" title="Filtrar por categoria"></select>
 <div class="control-group">
 <button aria-label="Alternar tema" class="toggle" id="themeToggle" type="button">☀️</button>
@@ -95,7 +77,7 @@
       <span id="count">0</span>
 <span class="i18n-items">itens</span>
 <span class="sep">|</span>
-<span class="i18n-lastupdate">Última atualização: Março/2026</span>
+<span class="i18n-lastupdate">Última atualização: Outubro/2026</span>
 </div>
 <p class="footer-lead">
 <span class="i18n-footer-lead-pre">O projeto</span>
@@ -105,7 +87,7 @@
 <p class="footer-note i18n-bookmarkShare">Salve esse projeto nos seus favoritos e compartilhe!</p>
 <p class="footer-nav"><span class="i18n-footernav">Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.</span></p>
 <div class="footer-actions">
-<a class="btn linkedin mono" href="https://linkedin.com/in/juliocesarprava/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="btn linkedin mono" href="https://www.linkedin.com/company/biblioverse.org" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 <button aria-label="Favoritar" class="btn star mono" id="favBtn" type="button">⭐</button>
 <button class="btn share mono" id="shareBtn" type="button"><span class="i18n-share">Compartilhar</span></button>
 <a class="btn bverse mono" href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">BiblioVerse</a>
@@ -131,7 +113,7 @@
   {
     "category": "🎓 Plataformas de cursos online",
     "name": "BBC Languages",
-    "url": "http://www.bbc.co.uk/languages",
+    "url": "https://www.bbc.co.uk/languages/",
     "description": "",
     "tags": []
   },
@@ -160,13 +142,6 @@
     "category": "📖 Leitura (Reading)",
     "name": "LingQ",
     "url": "https://www.lingq.com/",
-    "description": "",
-    "tags": []
-  },
-  {
-    "category": "🧩 Memorização",
-    "name": "Anki",
-    "url": "https://apps.ankiweb.net/",
     "description": "",
     "tags": []
   },
@@ -264,7 +239,7 @@
   {
     "category": "🤖 Ferramentas com IA para idiomas",
     "name": "ChatGPT",
-    "url": "https://chat.openai.com/",
+    "url": "https://chatgpt.com/",
     "description": "",
     "tags": []
   },
@@ -292,7 +267,7 @@
   {
     "category": "Blogs de idiomas",
     "name": "Babel Magazine",
-    "url": "https://babelzine.com/",
+    "url": "https://babelzine.co.uk/",
     "description": "",
     "tags": []
   },
@@ -367,13 +342,6 @@
     "tags": []
   },
   {
-    "category": "🧩 Memorização",
-    "name": "Memrise",
-    "url": "https://www.memrise.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "🔊 Pronúncia & Fonética",
     "name": "Elsa Speak",
     "url": "https://elsaspeak.com/",
@@ -437,13 +405,6 @@
     "tags": []
   },
   {
-    "category": "🖋️ Correção de textos",
-    "name": "Grammarly",
-    "url": "https://www.grammarly.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "🔬 Aprendizado Avançado / Linguística",
     "name": "Computational Linguistics",
     "url": "https://en.wikipedia.org/wiki/Computational_linguistics",
@@ -460,7 +421,7 @@
   {
     "category": "⌚ Gadgets / Wearables",
     "name": "Google Pixel Buds Translate",
-    "url": "https://support.google.com/pixelbuds/answer/9137852",
+    "url": "https://support.google.com/googlepixelbuds/answer/7573100",
     "description": "",
     "tags": []
   },
@@ -481,7 +442,7 @@
   {
     "category": "Blogs de idiomas",
     "name": "BBC Languages",
-    "url": "http://www.bbc.co.uk/languages",
+    "url": "https://www.bbc.co.uk/languages/",
     "description": "",
     "tags": []
   },
@@ -516,7 +477,7 @@
   {
     "category": "🎓 Plataformas de cursos online",
     "name": "edX Language Learning",
-    "url": "https://www.edx.org/learn/languages",
+    "url": "https://www.edx.org/learn/language",
     "description": "",
     "tags": []
   },
@@ -545,13 +506,6 @@
     "category": "📖 Leitura (Reading)",
     "name": "ManyBooks",
     "url": "https://manybooks.net/",
-    "description": "",
-    "tags": []
-  },
-  {
-    "category": "🧩 Memorização",
-    "name": "Quizlet",
-    "url": "https://quizlet.com/",
     "description": "",
     "tags": []
   },
@@ -600,7 +554,7 @@
   {
     "category": "📋 Testes & Certificações",
     "name": "DELE",
-    "url": "https://examenes.cervantes.es/",
+    "url": "https://cervantes.org/es/examenes/dele",
     "description": "",
     "tags": []
   },
@@ -626,13 +580,6 @@
     "tags": []
   },
   {
-    "category": "🖋️ Correção de textos",
-    "name": "Hemingway Editor",
-    "url": "https://hemingwayapp.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "🔬 Aprendizado Avançado / Linguística",
     "name": "Historical Linguistics",
     "url": "https://en.wikipedia.org/wiki/Historical_linguistics",
@@ -649,7 +596,7 @@
   {
     "category": "🤖 Ferramentas com IA para idiomas",
     "name": "LangAI",
-    "url": "https://www.lang.ai/",
+    "url": "https://apps.apple.com/app/id1671639505",
     "description": "",
     "tags": []
   },
@@ -738,13 +685,6 @@
     "tags": []
   },
   {
-    "category": "🧩 Memorização",
-    "name": "Brainscape",
-    "url": "https://www.brainscape.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "✍️ Escrita (Writing)",
     "name": "Hemingway Editor",
     "url": "https://hemingwayapp.com/",
@@ -761,7 +701,7 @@
   {
     "category": "💡 Conceitos Fundamentais",
     "name": "Functional linguistics",
-    "url": "https://www.wikiwand.com/en/articles/Functional_linguistics",
+    "url": "https://en.wikipedia.org/wiki/Functional_linguistics",
     "description": "",
     "tags": []
   },
@@ -815,7 +755,7 @@
     "tags": []
   },
   {
-    "category": "🖋️ Correção de textos",
+    "category": "✍️ Escrita (Writing)",
     "name": "HiNative",
     "url": "https://hinative.com/",
     "description": "",
@@ -852,7 +792,7 @@
   {
     "category": "✈️ Agências de imersão e intercâmbio",
     "name": "Cultural Care Au Pair",
-    "url": "https://culturalcare.com/",
+    "url": "https://www.culturalcare.world/",
     "description": "",
     "tags": []
   },
@@ -927,13 +867,6 @@
     "tags": []
   },
   {
-    "category": "🧩 Memorização",
-    "name": "Mochi",
-    "url": "https://mochi.cards/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "✍️ Escrita (Writing)",
     "name": "Journaly",
     "url": "https://journaly.com/",
@@ -943,7 +876,7 @@
   {
     "category": "🔊 Pronúncia & Fonética",
     "name": "IPA Chart",
-    "url": "https://en.wikipedia.org/wiki/International_Phonetic_Alphabet",
+    "url": "https://www.internationalphoneticassociation.org/content/ipa-chart",
     "description": "",
     "tags": []
   },
@@ -1004,13 +937,6 @@
     "tags": []
   },
   {
-    "category": "🖋️ Correção de textos",
-    "name": "Journaly",
-    "url": "https://journaly.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "🔬 Aprendizado Avançado / Linguística",
     "name": "Phonetics",
     "url": "https://en.wikipedia.org/wiki/Phonetics",
@@ -1038,13 +964,13 @@
     "description": "",
     "tags": []
   },
-   {
+  {
     "category": "✈️ Agências de imersão e intercâmbio",
     "name": "Sol Edu",
     "url": "https://www.soledu.net/",
     "description": "",
     "tags": []
-  },     
+  },
   {
     "category": "Blogs de idiomas",
     "name": "BBC Learning English",
@@ -1123,13 +1049,6 @@
     "tags": []
   },
   {
-    "category": "🧩 Memorização",
-    "name": "RemNote",
-    "url": "https://www.remnote.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "✍️ Escrita (Writing)",
     "name": "LangCorrect",
     "url": "https://langcorrect.com/",
@@ -1174,14 +1093,14 @@
   {
     "category": "📋 Testes & Certificações",
     "name": "HSK",
-    "url": "http://www.chinesetest.cn/",
+    "url": "https://www.chinesetest.cn/",
     "description": "",
     "tags": []
   },
   {
     "category": "🏫 Grandes escolas",
     "name": "Instituto Cervantes",
-    "url": "https://www.cervantes.es/",
+    "url": "https://cervantes.org/es",
     "description": "",
     "tags": []
   },
@@ -1196,13 +1115,6 @@
     "category": "📗 Clubes de leitura online",
     "name": "Polyglot Book Club",
     "url": "https://polyglotclub.com/",
-    "description": "",
-    "tags": []
-  },
-  {
-    "category": "🖋️ Correção de textos",
-    "name": "LangCorrect",
-    "url": "https://langcorrect.com/",
     "description": "",
     "tags": []
   },
@@ -1312,13 +1224,6 @@
     "tags": []
   },
   {
-    "category": "🧩 Memorização",
-    "name": "SuperMemo",
-    "url": "https://www.supermemo.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "✍️ Escrita (Writing)",
     "name": "ProWritingAid",
     "url": "https://prowritingaid.com/",
@@ -1349,7 +1254,7 @@
   {
     "category": "🧠 Técnicas e métodos de estudo",
     "name": "Mass Immersion Approach",
-    "url": "https://massimmersionapproach.com/",
+    "url": "https://www.mattvsjapan.com/",
     "description": "",
     "tags": []
   },
@@ -1360,13 +1265,13 @@
     "description": "",
     "tags": []
   },
-    {
+  {
     "category": "📋 Testes & Certificações",
     "name": "CertTESOL",
     "url": "https://www.trinitycollege.com/qualifications/teaching-english/CertTESOL",
     "description": "",
     "tags": []
-  },    
+  },
   {
     "category": "📋 Testes & Certificações",
     "name": "IELTS",
@@ -1392,13 +1297,6 @@
     "category": "📗 Clubes de leitura online",
     "name": "Read With Me Club",
     "url": "https://readwithme.club/",
-    "description": "",
-    "tags": []
-  },
-  {
-    "category": "🖋️ Correção de textos",
-    "name": "ProWritingAid",
-    "url": "https://prowritingaid.com/",
     "description": "",
     "tags": []
   },
@@ -1433,13 +1331,13 @@
   {
     "category": "✈️ Agências de imersão e intercâmbio",
     "name": "ISIC Travel & Exchange",
-    "url": "https://www.isic.org/travel",
+    "url": "https://www.isic.org/",
     "description": "",
     "tags": []
   },
   {
     "category": "Blogs de idiomas",
-    "name": "Fluent In Tree Months Blog",
+    "name": "Fluent in 3 Months Blog",
     "url": "https://www.fluentin3months.com/articles/",
     "description": "",
     "tags": []
@@ -1578,13 +1476,6 @@
     "tags": []
   },
   {
-    "category": "🖋️ Correção de textos",
-    "name": "Scribens",
-    "url": "https://www.scribens.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "🔬 Aprendizado Avançado / Linguística",
     "name": "Second Language Acquisition",
     "url": "https://en.wikipedia.org/wiki/Second_language_acquisition",
@@ -1662,6 +1553,13 @@
     "tags": []
   },
   {
+    "category": "📝 Gramática & Vocabulário",
+    "name": "Cambridge Dictionary",
+    "url": "https://dictionary.cambridge.org/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "🎧 Escuta (Listening)",
     "name": "Speaking",
     "url": "https://play.google.com/store/apps/details?id=com.google.android.apps.translate",
@@ -1679,13 +1577,6 @@
     "category": "📖 Leitura (Reading)",
     "name": "Standard Ebooks",
     "url": "https://standardebooks.org/",
-    "description": "",
-    "tags": []
-  },
-  {
-    "category": "🧩 Memorização",
-    "name": "Clozemaster",
-    "url": "https://www.clozemaster.com/",
     "description": "",
     "tags": []
   },
@@ -1760,13 +1651,6 @@
     "tags": []
   },
   {
-    "category": "🖋️ Correção de textos",
-    "name": "Write & Improve",
-    "url": "https://writeandimprove.com/",
-    "description": "",
-    "tags": []
-  },
-  {
     "category": "🔬 Aprendizado Avançado / Linguística",
     "name": "Sociolinguistics",
     "url": "https://en.wikipedia.org/wiki/Sociolinguistics",
@@ -1790,7 +1674,7 @@
   {
     "category": "⌚ Gadgets / Wearables",
     "name": "Vasco Translator",
-    "url": "https://vasco-electronics.com/",
+    "url": "https://vasco-translator.com/",
     "description": "",
     "tags": []
   },
@@ -1833,6 +1717,13 @@
     "category": "📚 Aplicativos de Idiomas",
     "name": "Tandem",
     "url": "https://www.tandem.net/",
+    "description": "",
+    "tags": []
+  },
+  {
+    "category": "📚 Aplicativos de Idiomas",
+    "name": "Pimsleur",
+    "url": "https://www.pimsleur.com/",
     "description": "",
     "tags": []
   },
@@ -1886,6 +1777,13 @@
     "tags": []
   },
   {
+    "category": "🎧 Escuta (Listening)",
+    "name": "Language Reactor",
+    "url": "https://www.languagereactor.com/",
+    "description": "",
+    "tags": []
+  },
+  {
     "category": "💡 Conceitos Fundamentais",
     "name": "Sociolinguística",
     "url": "https://pt.wikipedia.org/wiki/Sociolingu%C3%ADstica",
@@ -1916,7 +1814,7 @@
   {
     "category": "💡 Conceitos Fundamentais",
     "name": "subject–verb–object",
-    "url": "https://www.wikiwand.com/en/articles/Subject%E2%80%93verb%E2%80%93object_word_order",
+    "url": "https://en.wikipedia.org/wiki/Subject%E2%80%93verb%E2%80%93object_word_order",
     "description": "",
     "tags": []
   },
@@ -1958,7 +1856,7 @@
   {
     "category": "💡 Conceitos Fundamentais",
     "name": "Universal grammar",
-    "url": "https://www.wikiwand.com/en/articles/Universal_grammar",
+    "url": "https://en.wikipedia.org/wiki/Universal_grammar",
     "description": "",
     "tags": []
   },

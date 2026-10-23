@@ -1,25 +1,3 @@
-// === Superbar <-> Sidebar width sync ===
-(function(){
-  try{
-    const root = document.documentElement;
-    const side = document.querySelector('.sidepush, #sidepush, .sidebar, #sidebar');
-    const setW = () => {
-      const w = side ? side.offsetWidth : 0;
-      root.style.setProperty('--sidepush-w', w + 'px');
-    };
-    setW();
-    // Track live changes (collapse/expand)
-    if (window.ResizeObserver){
-      const ro = new ResizeObserver(setW);
-      if (side) ro.observe(side);
-      window.addEventListener('resize', setW, {passive:true});
-    }else{
-      window.addEventListener('resize', setW, {passive:true});
-    }
-  }catch(e){
-    // fail silently; layout still works with full width
-  }
-})();
 
 
 // Helper: update arrow direction and labels
@@ -695,13 +673,13 @@ const I18N = {
     footerLeadPost:"foi idealizada por Julio Cesar Prava e Aline Lima e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",
     bookmarkShare:"Salve esse projeto nos seus favoritos e compartilhe!",
     thanks:"Obrigado pela visita!",
-    lastUpdate:"Última atualização: Março/2026",
+    lastUpdate:"Última atualização: Outubro/2026",
     footernav:"Acesse as bibliotecas de outros temas úteis no <strong class=\"bverse-strong\">BiblioVerse</strong>.",
     share:"Compartilhar",
     copied:"Link copiado!",
     favHelp:"Use Ctrl+D (Windows) ou Cmd+D (Mac) para favoritar esta página.",
     kbdTitle:
-"Atalhos de teclado\n/ – Ativa a barra de busca\nT – Alterna cor do tema\nL – Alterna idioma\n\n★ – Destaque"
+"Atalhos de teclado\n/ – Ativa a barra de busca\nT – Alterna cor do tema\nL – Alterna idioma\nB – Abre o menu do BiblioVerse\n\n★ – Destaque"
   },
   en: {
     brand:"The Language Learning Library",
@@ -718,13 +696,13 @@ const I18N = {
     footerLeadPost:"was conceived by Julio Cesar Prava and Aline Lima and built with the help of AI. The project showcases items selected and reviewed by human curators.",
     bookmarkShare:"Bookmark this project and share it!",
     thanks:"Thanks for visiting!",
-    lastUpdate:"Last update: March/2026",
+    lastUpdate:"Last update: October/2026",
     footernav:"Access libraries on other useful topics at <strong class=\"bverse-strong\">BiblioVerse</strong>.",
     share:"Share",
     copied:"Link copied!",
     favHelp:"Use Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page.",
     kbdTitle:
-"Keyboard shortcuts\n/ – Focus the search bar\nT – Toggle theme color\nL – Toggle language\n\n★ – Featured"
+"Keyboard shortcuts\n/ – Focus the search bar\nT – Toggle theme color\nL – Toggle language\nB – Open the BiblioVerse menu\n\n★ – Featured"
   },
   es: {
     brand:"La Biblioteca de Aprendizaje de Idiomas",
@@ -741,13 +719,13 @@ const I18N = {
     footerLeadPost:"fue concebida por Julio Cesar Prava y Aline Lima y construida con la ayuda de IA. El proyecto reúne elementos seleccionados y revisados por curadores humanos.",
     bookmarkShare:"¡Guarda este proyecto en tus favoritos y compártelo!",
     thanks:"¡Gracias por tu visita!",
-    lastUpdate:"Última actualización: Marzo/2026",
+    lastUpdate:"Última actualización: Octubre/2026",
     footernav:"Accede a las bibliotecas de otros temas útiles en <strong class=\"bverse-strong\">BiblioVerse</strong>.",
     share:"Compartir",
     copied:"¡Enlace copiado!",
     favHelp:"Usa Ctrl+D (Windows) o Cmd+D (Mac) para marcar esta página.",
     kbdTitle:
-"Atajos de teclado\n/ – Activar la barra de búsqueda\nT – Cambiar color del tema\nL – Cambiar idioma\n\n★ – Destacado"
+"Atajos de teclado\n/ – Activar la barra de búsqueda\nT – Cambiar color del tema\nL – Cambiar idioma\nB – Abre el menú de BiblioVerse\n\n★ – Destacado"
   },
   zh: {
     brand:"语言学习图书馆",
@@ -764,13 +742,13 @@ const I18N = {
     footerLeadPost:"由 Julio Cesar Prava 和 Aline Lima 构想，并在 AI 的协助下构建。该项目收录了由人工编辑精选和审核的内容。",
     bookmarkShare:"将此项目加入收藏并分享！",
     thanks:"感谢您的访问！",
-    lastUpdate:"最后更新：2026年3月",
+    lastUpdate:"最后更新：2026年10月",
     footernav:"在 <strong class=\"bverse-strong\">BiblioVerse</strong> 上访问其他有用主题的图书馆。",
     share:"分享",
     copied:"链接已复制！",
     favHelp:"使用 Ctrl+D（Windows）或 Cmd+D（Mac）将此页面加入书签。",
     kbdTitle:
-"键盘快捷键\n/ – 激活搜索栏\nT – 切换主题颜色\nL – 切换语言\n\n★ – 精选"
+"键盘快捷键\n/ – 激活搜索栏\nT – 切换主题颜色\nL – 切换语言\nB – 打开 BiblioVerse 菜单\n\n★ – 精选"
   },
   hi: {
     brand:"भाषा सीखने की लाइब्रेरी",
@@ -787,13 +765,13 @@ const I18N = {
     footerLeadPost:"Julio Cesar Prava और Aline Lima द्वारा परिकल्पित, और AI की सहायता से निर्मित। यह परियोजना मानव क्यूरेटर द्वारा चुने और समीक्षित आइटम प्रस्तुत करती है।",
     bookmarkShare:"इस परियोजना को बुकमार्क करें और साझा करें!",
     thanks:"आपकी यात्रा के लिए धन्यवाद!",
-    lastUpdate:"अंतिम अपडेट: मार्च/2026",
+    lastUpdate:"अंतिम अपडेट: अक्टूबर/2026",
     footernav:"<strong class=\"bverse-strong\">BiblioVerse</strong> पर अन्य उपयोगी विषयों की लाइब्रेरी देखें।",
     share:"साझा करें",
     copied:"लिंक कॉपी हो गया!",
     favHelp:"इस पृष्ठ को बुकमार्क करने के लिए Ctrl+D (Windows) या Cmd+D (Mac) का उपयोग करें।",
     kbdTitle:
-"कीबोर्ड शॉर्टकट\n/ – सर्च बार सक्रिय करें\nT – थीम रंग बदलें\nL – भाषा बदलें\n\n★ – विशेष"
+"कीबोर्ड शॉर्टकट\n/ – सर्च बार सक्रिय करें\nT – थीम रंग बदलें\nL – भाषा बदलें\nB – BiblioVerse मेनू खोलें\n\n★ – विशेष"
   },
   ar: {
     brand:"مكتبة تعلم اللغات",
@@ -810,13 +788,13 @@ const I18N = {
     footerLeadPost:"تم تصورها من قبل Julio Cesar Prava و Aline Lima وبُنيت بمساعدة الذكاء الاصطناعي. يجمع المشروع عناصر مختارة ومراجعة من قبل منسقين بشريين.",
     bookmarkShare:"احفظ هذا المشروع في المفضلة وشاركه!",
     thanks:"شكراً على زيارتك!",
-    lastUpdate:"آخر تحديث: مارس/2026",
+    lastUpdate:"آخر تحديث: أكتوبر/2026",
     footernav:"تصفح مكتبات مواضيع مفيدة أخرى في <strong class=\"bverse-strong\">BiblioVerse</strong>.",
     share:"مشاركة",
     copied:"تم نسخ الرابط!",
     favHelp:"استخدم Ctrl+D (ويندوز) أو Cmd+D (ماك) لحفظ هذه الصفحة في المفضلة.",
     kbdTitle:
-"اختصارات لوحة المفاتيح\n/ – تفعيل شريط البحث\nT – تبديل لون السمة\nL – تبديل اللغة\n\n★ – مميز"
+"اختصارات لوحة المفاتيح\n/ – تفعيل شريط البحث\nT – تبديل لون السمة\nL – تبديل اللغة\nB – فتح قائمة BiblioVerse\n\n★ – مميز"
   },
   de: {
     brand:"Die Sprachlernbibliothek",
@@ -833,80 +811,13 @@ const I18N = {
     footerLeadPost:"wurde von Julio Cesar Prava und Aline Lima konzipiert und mit Hilfe von KI entwickelt. Das Projekt vereint von menschlichen Kuratoren ausgewählte und geprüfte Einträge.",
     bookmarkShare:"Speichere dieses Projekt in deinen Lesezeichen und teile es!",
     thanks:"Danke für deinen Besuch!",
-    lastUpdate:"Letzte Aktualisierung: März/2026",
+    lastUpdate:"Letzte Aktualisierung: Oktober/2026",
     footernav:"Entdecke Bibliotheken zu anderen nützlichen Themen auf <strong class=\"bverse-strong\">BiblioVerse</strong>.",
     share:"Teilen",
     copied:"Link kopiert!",
     favHelp:"Benutze Strg+D (Windows) oder Cmd+D (Mac), um diese Seite zu bookmarken.",
     kbdTitle:
-"Tastenkürzel\n/ – Suchleiste fokussieren\nT – Design wechseln\nL – Sprache wechseln\n\n★ – Hervorgehoben"
-  }
-};
-
-// Labels for the top superbar items
-const SUPERBAR_I18N = {
-  pt: {
-    design: "Design",
-    games: "Games",
-    language: "Idiomas",
-    ai: "IA",
-    music: "Música",
-    coding: "Programação",
-    social: "Redes Sociais"
-  },
-  en: {
-    design: "Design",
-    games: "Games",
-    language: "Language",
-    ai: "AI",
-    music: "Music",
-    coding: "Coding",
-    social: "Social"
-  },
-  es: {
-    design: "Diseño",
-    games: "Juegos",
-    language: "Idiomas",
-    ai: "IA",
-    music: "Música",
-    coding: "Programación",
-    social: "Redes Sociales"
-  },
-  zh: {
-    design: "设计",
-    games: "游戏",
-    language: "语言",
-    ai: "人工智能",
-    music: "音乐",
-    coding: "编程",
-    social: "社交"
-  },
-  hi: {
-    design: "डिज़ाइन",
-    games: "गेम्स",
-    language: "भाषाएं",
-    ai: "AI",
-    music: "संगीत",
-    coding: "कोडिंग",
-    social: "सोशल"
-  },
-  ar: {
-    design: "التصميم",
-    games: "الألعاب",
-    language: "اللغات",
-    ai: "الذكاء الاصطناعي",
-    music: "الموسيقى",
-    coding: "البرمجة",
-    social: "التواصل الاجتماعي"
-  },
-  de: {
-    design: "Design",
-    games: "Spiele",
-    language: "Sprachen",
-    ai: "KI",
-    music: "Musik",
-    coding: "Programmierung",
-    social: "Soziale Medien"
+"Tastenkürzel\n/ – Suchleiste fokussieren\nT – Design wechseln\nL – Sprache wechseln\nB – BiblioVerse-Menü öffnen\n\n★ – Hervorgehoben"
   }
 };
 
@@ -922,7 +833,6 @@ function setLang(lang){
   const totalEl = document.querySelector('.i18n-total'); if(totalEl) totalEl.textContent = dict.total;
   const itemsEl = document.querySelector('.i18n-items'); if(itemsEl) itemsEl.textContent = dict.items;
   const byEl = document.querySelector('.i18n-by'); if(byEl) byEl.textContent = dict.by;
-  const andEl = document.querySelector('.i18n-and'); if(andEl) andEl.textContent = dict.and;
 
   const leadPre = document.querySelector('.i18n-footer-lead-pre'); if(leadPre) leadPre.textContent = dict.footerLeadPre;
   const proj = document.querySelector('.i18n-project-name'); if(proj) proj.textContent = dict.projectName;
@@ -937,7 +847,7 @@ function setLang(lang){
 
   const tip = document.getElementById('infoTip'); if(tip) tip.textContent = dict.kbdTitle;
 
-  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : (lang==='ar' ? 'ar' : (lang==='de' ? 'de' : 'pt-br'))))));
+  document.documentElement.setAttribute('lang', lang==='en' ? 'en' : (lang==='es' ? 'es' : (lang==='zh' ? 'zh-CN' : (lang==='hi' ? 'hi' : (lang==='ar' ? 'ar' : (lang==='de' ? 'de' : 'pt-BR'))))));
   document.documentElement.setAttribute('dir', lang==='ar' ? 'rtl' : 'ltr');
   const _curLangFlag = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸', zh: '🇨🇳', hi: '🇮🇳', ar: '🇸🇦', de: '🇩🇪' };
   const langBtn=document.getElementById('langToggle'); if(langBtn){ langBtn.textContent = _curLangFlag[lang] || '🇧🇷'; }
@@ -951,26 +861,6 @@ function setLang(lang){
   if(infoBtn2){ infoBtn2.setAttribute('aria-label', lang==='en' ? 'Information' : (lang==='es' ? 'Información' : (lang==='zh' ? '信息' : (lang==='hi' ? 'जानकारी' : (lang==='ar' ? 'معلومات' : (lang==='de' ? 'Informationen' : 'Informações')))))); }
   const catSel2 = document.getElementById('categoryFilter');
   if(catSel2){ catSel2.setAttribute('title', lang==='en' ? 'Filter by category' : (lang==='es' ? 'Filtrar por categoría' : (lang==='zh' ? '按类别筛选' : (lang==='hi' ? 'श्रेणी के अनुसार फ़िल्टर करें' : (lang==='ar' ? 'تصفية حسب الفئة' : (lang==='de' ? 'Nach Kategorie filtern' : 'Filtrar por categoria')))))); }
-
-// Update superbar labels
-  try{
-    const labels = SUPERBAR_I18N[lang] || SUPERBAR_I18N.pt;
-    document.querySelectorAll('.superbar-list [data-key]').forEach(function(a){
-      const key = a.getAttribute('data-key');
-      if (key && labels[key]) { a.textContent = labels[key]; }
-    });
-  }catch(e){}
-
-
-// Localize superbar mobile toggle title
-try{
-  var st = document.querySelector('.superbar .superbar-toggle .i18n-superbar-title');
-  if(st){
-    st.textContent = lang==='en'
-      ? 'BiblioVerse - The Library of Everything'
-      : (lang==='es' ? 'BiblioVerse - La Biblioteca de Todo' : (lang==='zh' ? 'BiblioVerse - 万物图书馆' : (lang==='hi' ? 'BiblioVerse - सब कुछ की लाइब्रेरी' : (lang==='ar' ? 'BiblioVerse - مكتبة كل شيء' : (lang==='de' ? 'BiblioVerse - Die Bibliothek von Allem' : 'BiblioVerse - A Biblioteca de Tudo')))));
-  }
-}catch(e){}
 
 }
 
@@ -1095,13 +985,16 @@ function createCard(item){
     }catch(e){ /* noop */ }
   });
 
-  const m = parsed.item.match(/^(.*?)(\s*\(.*\)\s*)$/);
-  if(m){
-    title.appendChild(document.createTextNode(' '+m[1].trim()));
-    const par=document.createElement('span'); par.className='paren'; par.textContent=m[2]; title.appendChild(par);
+  // Name; a trailing "(...)" goes to its own line so long names don't get truncated
+  const nameEl = document.createElement('span'); nameEl.className='name';
+  const m = parsed.item.match(/^(.*?)\s*(\(.*\))\s*$/);
+  if(m && m[1]){
+    nameEl.appendChild(document.createTextNode(m[1].trim()));
+    const par=document.createElement('span'); par.className='paren'; par.textContent=m[2]; nameEl.appendChild(par);
   }else{
-    title.appendChild(document.createTextNode(' '+parsed.item));
+    nameEl.textContent = parsed.item;
   }
+  title.appendChild(nameEl);
   if(isFeatured(item)){
     var star=document.createElement('span');
     star.className='featured-star';
@@ -1123,11 +1016,12 @@ function createCard(item){
   /* align badges right */
   (function(){
     try{
-      var starEl = title.querySelector('.featured-star');
+      var starEl = title.querySelector('.featured-star:not(.ended-badge)');
       var endedEl = title.querySelector('.ended-badge');
       if(endedEl){
         if(starEl){
-          endedEl.style.right = '0px'; // move left when star is present
+          endedEl.style.right = '0px';
+          starEl.style.right = '30px'; // star sits left of the tombstone when both are present
           // increase padding-right to avoid text under badges
           title.style.paddingRight = '56px';
         }else{
@@ -1267,7 +1161,8 @@ function showToast(msg){
 
 function getHeaderOffset(){
   const h=document.querySelector('.site-header');
-  return (h ? h.offsetHeight : 0) + 12; // small breathing space
+  const bar=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bvbar-h'))||44;
+  return bar + (h ? h.offsetHeight : 0) + 12; // fixed BiblioVerse bar + sticky header + breathing space
 }
 function smoothScrollToId(id){
   const el=document.getElementById(id);
@@ -1467,7 +1362,8 @@ function setupInfo(){
   setupInfo();
 
   document.addEventListener('keydown',(e)=>{
-    const inField = e.target.matches('input,textarea,[contenteditable="true"]');
+    if(e.ctrlKey || e.metaKey || e.altKey) return; // leave browser shortcuts (Ctrl+L, Ctrl+T...) alone
+    const inField = e.target.closest && e.target.closest('input,textarea,select,[contenteditable="true"]');
     if(e.key==='/'&&!inField){ e.preventDefault(); document.querySelector('#search').focus(); }
     if(!inField && e.key && e.key.toLowerCase()==='t'){ e.preventDefault(); const html=document.documentElement; const now=html.getAttribute('data-theme')==='light'?'dark':'light'; setTheme(now); }
     if(!inField && e.key && e.key.toLowerCase()==='l'){ e.preventDefault(); if(langPicker){ langPicker.classList.toggle('open'); document.querySelectorAll('.lang-option').forEach(btn=>{ btn.classList.toggle('active', btn.dataset.lang === getLang()); }); } }
@@ -1956,50 +1852,6 @@ if (typeof updateMenuToggleUi === 'function') {
       scrollToTopAfterRender();
     }, { passive: true });
 
-  });
-})();
-
-
-// Superbar mobile toggle
-document.addEventListener('DOMContentLoaded', function(){
-  const superbar = document.querySelector('.superbar');
-  const toggle = document.querySelector('.superbar-toggle');
-  if(toggle){
-    toggle.addEventListener('click', () => {
-      superbar.classList.toggle('open');
-    });
-  }
-});
-
-
-// ===== Superbar compact toggle & current label =====
-(function(){
-  const nav = document.querySelector('.superbar');
-  if(!nav) return;
-  const toggle = nav.querySelector('.superbar-toggle');
-  const list = nav.querySelector('.superbar-list');
-  const current = nav.querySelector('.superbar-current');
-
-  // Set current label from active item
-  const active = list.querySelector('.superbar-item.active a') || list.querySelector('.superbar-item a');
-  if (active && current) current.textContent = active.textContent.trim();
-
-  if (toggle){
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-
-  // Close on link click (small screens)
-  list.addEventListener('click', (ev) => {
-    const a = ev.target.closest('a');
-    if(!a) return;
-    if (window.matchMedia('(max-width: 720px)').matches){
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      if (current) current.textContent = a.textContent.trim();
-    }
   });
 })();
 
